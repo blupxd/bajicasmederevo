@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
+import { TbPhone } from "react-icons/tb";
 
 interface Link {
   label: string;
@@ -63,9 +64,9 @@ const Navbar = () => {
       </ul>
       <Link
         href="tel:+381 11 1234 567"
-        className="px-8 py-3 rounded-bl-full rounded-tr-full font-medium text-white bg-[#A2EE42]"
+        className="px-8 py-3 flex items-center gap-2 rounded-bl-full rounded-tr-full font-medium text-white bg-[#A2EE42]"
       >
-        Pozovite Nas
+        <TbPhone className="text-2xl" /> Pozovite Nas
       </Link>
     </nav>
   );

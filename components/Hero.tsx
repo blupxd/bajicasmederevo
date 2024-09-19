@@ -41,7 +41,7 @@ const Hero = () => {
              before:content-[''] transition-all duration-200 before:absolute before:inset-0 before:bg-[#A2EE42] 
              before:w-full before:h-full before:-z-10 before:translate-x-1 before:translate-y-1 
              before:transition-transform before:duration-200 hover:before:translate-x-2 hover:before:translate-y-2"
-            href="#usluge"
+            href="#services"
           >
             Saznaj više
           </Link>

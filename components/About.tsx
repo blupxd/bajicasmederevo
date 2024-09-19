@@ -22,7 +22,7 @@ const About = () => {
     }
   ]
   return (
-    <section className="px-10 lg:px-20 mb-12 w-full">
+    <section id="o-nama" className="px-10 lg:px-20 mb-12 w-full scroll-mt-20">
       <div className="flex flex-col md:flex-row justify-between w-full md:space-x-20">
         <h1 className="text-2xl sm:text-4xl md:text-3xl xl:text-4xl 2xl:text-5xl md:leading-normal 2xl:leading-[3.75rem] w-full font-black italic text-[#1E1E1E]">
           Porodična firma koja se bavi izvođenjem građevinskih radova već tri
@@ -36,7 +36,7 @@ const About = () => {
             prioritet.
           </p>
           <Link
-            href=""
+            href="#services"
             className="px-8 md:px-10 py-3 md:mt-0 mt-6 flex items-center gap-2 font-semibold hover:bg-[#1E1E1E] hover:text-white transition-all duration-300 ease-in-out rounded-full bg-[#A2EE42] max-w-max text-base 2xl:text-lg"
           >
             Nase usluge <FaArrowDown />
