@@ -10,12 +10,12 @@ import { LuExternalLink } from "react-icons/lu";
 const ServiceChanger = () => {
   const scrollerRef = useRef<HTMLDivElement | null>(null);
   const lastScroll = useRef<HTMLDivElement | null>(null);
-  const [scrollAmount, setScrollAmount] = useState(250);
+  const [scrollAmount, setScrollAmount] = useState(150);
 
   // Set the scroll amount based on window width
   useEffect(() => {
     if (typeof window !== "undefined") {
-      setScrollAmount(window.innerWidth > 1200 ? 600 : 350);
+      setScrollAmount(window.innerWidth > 1200 ? 600 : 150);
     }
   }, []);
 
