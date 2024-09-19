@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.scroller {
+    display: grid;
+    grid-auto-flow: column;
+    overflow-x: auto;
+    scrollbar-width: none;
+    overscroll-behavior-inline: contain;
+  }
+  .scroller::-webkit-scrollbar {
+    display: none;
+  }
+  .snaps-inline {
+    scroll-snap-type: inline mandatory;
+  }
+  .snaps-inline > * {
+    scroll-snap-align: start;
+  }
+  
