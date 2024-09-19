@@ -10,19 +10,19 @@ import { LuExternalLink } from "react-icons/lu";
 const ServiceChanger = () => {
   const scrollerRef = useRef<HTMLDivElement | null>(null);
   const lastScroll = useRef<HTMLDivElement | null>(null);
-  const [scrollAmount, setScrollAmount] = useState(220);
+  const [scrollAmount, setScrollAmount] = useState(300);
 
   // Set the scroll amount based on window width
   useEffect(() => {
     if (typeof window !== "undefined") {
-      setScrollAmount(window.innerWidth > 1200 ? 600 : 220);
+      setScrollAmount(window.innerWidth > 1200 ? 600 : 300);
     }
   }, []);
 
   const handleLeftClick = () => {
     if (scrollerRef.current) {
-      scrollerRef.current.scrollBy({
-        left: -scrollAmount,
+      scrollerRef.current.scrollTo({
+        left: scrollerRef.current.scrollLeft - scrollAmount,
         behavior: "smooth",
       });
     }
@@ -31,8 +31,8 @@ const ServiceChanger = () => {
   const inView = useInView(lastScroll);
   const handleRightClick = () => {
     if (scrollerRef.current && !inView) {
-      scrollerRef.current.scrollBy({
-        left: scrollAmount,
+      scrollerRef.current.scrollTo({
+        left: scrollerRef.current.scrollLeft + scrollAmount,
         behavior: "smooth",
       });
     }
