@@ -31,7 +31,7 @@ const Hero = () => {
       <Image
         src="/assets/bg.jpg"
         fill
-        className="object-cover lg:hidden opacity-20 z-10"
+        className="object-cover lg:hidden opacity-10 z-10"
         alt="BG"
       />
       <div className="flex flex-col max-w-max z-20">
