@@ -29,7 +29,7 @@ const About = () => {
           generacije unazad
         </h1>
         <div className="flex flex-col w-full justify-between">
-          <p className="leading-6 md:mt-0 mt-2 text-[#1E1E1E] sm:text-base text-sm xl:text-lg 2xl:text-xl">
+          <p className="leading-6 md:mt-0 mt-2 text-[#1E1E1E] text-base xl:text-lg 2xl:text-xl">
             Specijalizovani smo za restauraciju starih i istorijskih objekata.
             Korišćenjem savremenih tehnika, pažljivo obnavljamo zgrade uz
             očuvanje njihove autentičnosti. Kvalitet i tradicija su nam

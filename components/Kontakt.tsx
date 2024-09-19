@@ -12,7 +12,7 @@ interface InfoItem {
 
 const Kontakt = () => {
   return (
-    <section className="px-10 lg:px-20 pt-16 pb-[30rem] md:pb-8 bg-[#A2EE42] flex flex-col mb-48">
+    <section className="px-10 lg:px-20 pt-16 pb-96 md:pb-8 bg-[#A2EE42] flex flex-col mb-48">
       <div className="text-[#1e1e1e] flex flex-col text-center max-w-max mx-auto relative h-72 md:h-64">
         <h1 className="font-extrabold text-3xl sm:text-4xl lg:text-5xl">
           Zainteresovani ste za naše usluge?
