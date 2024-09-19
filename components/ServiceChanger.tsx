@@ -10,11 +10,11 @@ import { LuExternalLink } from "react-icons/lu";
 const ServiceChanger = () => {
   const scrollerRef = useRef<HTMLDivElement | null>(null);
   const lastScroll = useRef<HTMLDivElement | null>(null);
-
+  const scrollAmount = window.innerWidth > 1200 ? 500 : 250;
   const handleLeftClick = () => {
     if (scrollerRef.current) {
       scrollerRef.current.scrollBy({
-        left: -500,
+        left: -scrollAmount,
         behavior: "smooth",
       });
     }
@@ -24,7 +24,7 @@ const ServiceChanger = () => {
   const handleRightClick = () => {
     if (scrollerRef.current && !inView) {
       scrollerRef.current.scrollBy({
-        left: 500,
+        left: scrollAmount,
         behavior: "smooth",
       });
     }

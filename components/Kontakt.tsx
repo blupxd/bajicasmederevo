@@ -39,7 +39,7 @@ const Kontakt = () => {
               <h1 className=" text-[#1e1e1e] mt-2 md:mt-6 font-medium -mb-2">
                 {kontakt.text}
               </h1>
-              <p className="text-[#A2EE42] italic font-bold">
+              <p className="text-[#A2EE42] mt-1 italic font-bold">
                 {kontakt.contact}
               </p>
               <Link

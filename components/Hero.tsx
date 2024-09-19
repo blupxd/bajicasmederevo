@@ -1,7 +1,8 @@
+import { Pacifico } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-
+const pacifico = Pacifico({ weight: "400", subsets: ["latin"] });
 interface Info {
   label: string;
 }
@@ -19,15 +20,31 @@ const Hero = () => {
     },
   ];
   return (
-    <header className="flex lg:pr-0 px-10 lg:pl-20 justify-between pt-40 lg:pt-20">
-      <div className="flex flex-col max-w-max">
+    <header className="flex lg:pr-0 px-10 lg:pl-20 justify-between pt-40 lg:pt-20 pb-20 lg:pb-0 relative">
+      <Image
+        src="/assets/border.svg"
+        alt="border"
+        width={100}
+        height={100}
+        className="w-full absolute -bottom-20 sm:hidden left-0 right-0 z-20"
+      />
+      <Image
+        src="/assets/bg.jpg"
+        fill
+        className="object-cover lg:hidden opacity-20 z-10"
+        alt="BG"
+      />
+      <div className="flex flex-col max-w-max z-20">
         <h1 className="text-5xl xl:text-6xl text-[#1E1E1E] lg:text-left text-center font-black w-full">
           BAJICA SMEDEREVO
         </h1>
         <div className="w-full flex flex-col items-center">
-          <h2 className="text-2xl xl:text-3xl text-[#1E1E1E] text-center">
+          <h2
+            className={`${pacifico.className} text-xl xl:text-3xl text-[#1E1E1E] text-center`}
+          >
             Oživljavamo Istoriju, Gradimo Budućnost
           </h2>
+
           <hr className="w-full border-none bg-gradient-to-r from-transparent via-[#A2EE42] to-transparent h-1 my-4" />
           <p className="text-base md:text-lg xl:text-xl lg:w-[500px] xl:w-[600px] text-[#1E1E1E] text-center leading-6 md:leading-8 italic text-wrap">
             Posvećeni smo očuvanju i obnavljanju istorijskog nasleđa. Kao

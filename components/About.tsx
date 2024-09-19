@@ -48,7 +48,7 @@ const About = () => {
         {info.map((info,index) => (
           <div key={index} className="flex flex-col text-[#1E1E1E] w-60">
             <h1 className="text-2xl md:text-lg font-semibold">{info.title}</h1>
-            {index === 0 ? <Image src='/assets/trophy.svg' alt="Trophy" width={50} height={50} className="md:mx-0 mx-auto md:w-12 md:h-12 w-20 h-20"/> : <h2 className="text-7xl md:text-5xl font-bold">{info.number}</h2>}
+            {index === 0 ? <Image src='/assets/trophy.svg' alt="Trophy" width={50} height={50} className="md:mx-0 mx-auto md:w-12 md:h-12 w-20 mb-4 h-20"/> : <h2 className="text-7xl md:text-5xl font-bold">{info.number}</h2>}
             <p className="md:text-base text-lg md:mt-6">{info.description}</p>
           </div>
 
