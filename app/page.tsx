@@ -7,7 +7,7 @@ import Services from "@/components/Services";
 
 export default function Home() {
   return (
-    <main className="max-w-full flex flex-col bg-gradient-to-b from-[#F7FFED] to-white">
+    <main className="flex flex-col bg-gradient-to-b from-[#F7FFED] to-white">
       <Hero />
       <Partneri />
       <About />

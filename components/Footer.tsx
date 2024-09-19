@@ -9,7 +9,7 @@ const Footer = () => {
     <footer className="px-10 lg:px-20 text-sm py-16 flex lg:flex-row flex-col gap-12 lg:gap-0 lg:justify-between flex-wrap">
       <div className="flex flex-col space-y-10">
         <Image src="/assets/logo.png" width={150} height={150} alt="logo" />
-        <p className="italic leading-6 text-gray-400 w-96 xl:w-[30rem] text-wrap">
+        <p className="italic leading-6 text-gray-400 w-auto md:w-96 xl:w-[30rem] text-wrap">
           Posvećeni smo očuvanju i obnavljanju istorijskog nasleđa. Kao
           stručnjaci za restauraciju crkava i graditeljstvo, spajamo tradiciju
           sa savremenim standardima kvaliteta.
