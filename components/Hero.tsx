@@ -19,7 +19,7 @@ const Hero = () => {
     },
   ];
   return (
-    <header className="flex lg:pr-0 px-10 lg:pl-20 justify-between pt-20">
+    <header className="flex lg:pr-0 px-10 lg:pl-20 justify-between pt-40 lg:pt-20">
       <div className="flex flex-col max-w-max">
         <h1 className="text-5xl xl:text-6xl text-[#1E1E1E] lg:text-left text-center font-black w-full">
           BAJICA SMEDEREVO
