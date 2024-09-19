@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { usluge } from "@/constants";
 import Image from "next/image";
 import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
@@ -10,7 +10,15 @@ import { LuExternalLink } from "react-icons/lu";
 const ServiceChanger = () => {
   const scrollerRef = useRef<HTMLDivElement | null>(null);
   const lastScroll = useRef<HTMLDivElement | null>(null);
-  const scrollAmount = window.innerWidth > 1200 ? 500 : 250;
+  const [scrollAmount, setScrollAmount] = useState(250);
+
+  // Set the scroll amount based on window width
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setScrollAmount(window.innerWidth > 1200 ? 500 : 250);
+    }
+  }, []);
+
   const handleLeftClick = () => {
     if (scrollerRef.current) {
       scrollerRef.current.scrollBy({
