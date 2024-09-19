@@ -46,13 +46,16 @@ const MobileNav = () => {
 
   return (
     <nav className="z-30 bg-white shadow-lg shadow-black/10 px-10 py-4 fixed top-0 left-0 right-0 items-center lg:hidden block">
-      <Image
-        src="/assets/logo.png"
-        width={100}
-        height={100}
-        className="mx-auto"
-        alt="logo"
-      />
+      <Link className="mx-auto block max-w-max" href='/'>
+        <Image
+          src="/assets/logo.png"
+          width={100}
+          height={100}
+          className=""
+          alt="logo"
+        />
+      </Link>
+
       <button
         onClick={toggleMenu}
         className="p-1 bg-[#A2EE42] rounded-tr-2xl rounded-bl-2xl text-white absolute right-10 my-auto top-0 bottom-0 max-h-max"
