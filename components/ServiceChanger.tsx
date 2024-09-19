@@ -15,7 +15,7 @@ const ServiceChanger = () => {
   // Set the scroll amount based on window width
   useEffect(() => {
     if (typeof window !== "undefined") {
-      setScrollAmount(window.innerWidth > 1200 ? 500 : 250);
+      setScrollAmount(window.innerWidth > 1200 ? 600 : 350);
     }
   }, []);
 
