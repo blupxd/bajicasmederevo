@@ -13,14 +13,13 @@ const images = [
 ];
 
 const InfinityImage: React.FC = () => {
-  let [ref, { width }] = useMeasure();
+  const [ref, { width }] = useMeasure();
   const xTranslation = useMotionValue(0);
 
   useEffect(() => {
-    let controls;
-    let finalPosition = -width / 2 - 32;
+    const finalPosition = -width / 2 - 32;
 
-    controls = animate(xTranslation, [0, finalPosition], {
+    const controls = animate(xTranslation, [0, finalPosition], {
       ease: "linear",
       duration: 25,
       repeat: Infinity,

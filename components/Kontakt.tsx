@@ -30,7 +30,7 @@ const Kontakt = () => {
         </div>
         <hr className="w-full border-none bg-gradient-to-r from-transparent via-[#1e1e1e] to-transparent h-0.5 my-6" />
         <div className="flex md:flex-row flex-col h-full space-y-16 md:space-y-0 md:justify-between absolute top-72 md:top-48 bottom-0 w-full">
-          {podaci.map((kontakt) => (
+          {podaci.map((kontakt:InfoItem) => (
             <div
               key={kontakt.contact}
               className="bg-white h-full w-full md:w-72 lg:w-96 px-10 lg:px-16 shadow-xl shadow-black/20 py-8 border-b-[0.75rem] border-[#A2EE42] text-base lg:text-lg flex flex-col items-center"
