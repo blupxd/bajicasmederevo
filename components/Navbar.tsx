@@ -39,13 +39,16 @@ const Navbar = () => {
 
   return (
     <nav className="lg:flex w-full justify-between items-center text-sm px-20 2xl:py-10 py-8 hidden">
-      <Image
-        src="/assets/logo.png"
-        width={200}
-        height={200}
-        className="w-40 h-auto"
-        alt="logo"
-      />
+      <Link className="block max-w-max" href="/">
+        <Image
+          src="/assets/logo.png"
+          width={200}
+          height={200}
+          className="w-40 h-auto"
+          alt="logo"
+        />
+      </Link>
+
       <ul className="flex items-center gap-6 bg-gray-200 py-2.5 px-1 rounded-full">
         {links.map((link) => (
           <li key={link.href}>
@@ -64,7 +67,7 @@ const Navbar = () => {
       </ul>
       <Link
         href="tel:+381 11 1234 567"
-        className="px-8 py-3 flex items-center gap-2 rounded-bl-full rounded-tr-full font-medium text-white bg-[#A2EE42]"
+        className="px-8 py-3 flex items-center gap-2 rounded-bl-full rounded-tr-full font-medium text-white hover:bg-[#1e1e1e] transition-all duration-200 ease-in-out bg-[#A2EE42]"
       >
         <TbPhone className="text-2xl" /> Pozovite Nas
       </Link>

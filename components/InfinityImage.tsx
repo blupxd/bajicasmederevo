@@ -7,9 +7,9 @@ import Image from "next/image";
 
 // Manually list image paths
 const images = [
-  "/galerija/slika1.jpeg",
-  "/galerija/slika2.jpg",
-  "/galerija/slika3.jpg",
+  "/showcase/slika1.jpeg",
+  "/showcase/slika2.jpg",
+  "/showcase/slika3.jpg",
 ];
 
 const InfinityImage: React.FC = () => {
