@@ -96,14 +96,14 @@ const Galerija: React.FC<Gallery> = ({ folderi }) => {
             exit={{ opacity: 0 }}
           >
             <button
-                className="absolute top-4 right-4 hidden lg:block text-[#1e1e1e] text-3xl z-40 p-2 bg-[#A2EE42]"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  closeModal();
-                }}
-              >
-                <IoCloseOutline className="text-3xl" />
-              </button>
+              className="absolute top-4 right-4 hidden lg:block text-[#1e1e1e] text-3xl z-40 p-2 bg-[#A2EE42]"
+              onClick={(e) => {
+                e.stopPropagation();
+                closeModal();
+              }}
+            >
+              <IoCloseOutline className="text-3xl" />
+            </button>
             <motion.div
               className="relative w-96 max-w-5xl mx-auto h-[70%] md:h-[90%] p-4"
               initial={{ scale: 0.8 }}
@@ -121,7 +121,7 @@ const Galerija: React.FC<Gallery> = ({ folderi }) => {
                 <IoCloseOutline className="text-3xl" />
               </button>
               <h1 className="absolute left-0 bottom-0 text-center z-30 mt-12 text-sm text-white italic bg-black/70 px-4 py-2">
-                "{currentFolder?.folder}"
+                &quot;{currentFolder?.folder}&quot;
               </h1>
               <Image
                 src={`/gallery/${currentFolder?.folder}/${selectedImage}`}

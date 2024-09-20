@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import Animation1 from "./Animation1";
-import Animation2 from "./Animation2";
 const pacifico = Pacifico({ weight: "400", subsets: ["latin"] });
 interface Info {
   label: string;
