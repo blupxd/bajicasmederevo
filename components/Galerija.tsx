@@ -34,26 +34,60 @@ const Galerija: React.FC<Gallery> = ({ folderi }) => {
   };
 
   // Navigacija levo (prethodna slika)
-  const showPrevImage = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    if (currentFolder) {
-      const prevIndex =
-        (currentImageIndex - 1 + currentFolder.files.length) %
-        currentFolder.files.length;
+  // Navigacija levo (prethodna slika ili folder)
+const showPrevImage = (e: React.MouseEvent) => {
+  e.stopPropagation();
+
+  if (currentFolder) {
+    const prevIndex = currentImageIndex - 1;
+
+    // Ako je prva slika u folderu, pređi na prethodni folder
+    if (prevIndex < 0) {
+      const currentFolderIndex = folderi.findIndex(
+        (folder) => folder === currentFolder
+      );
+
+      if (currentFolderIndex > 0) {
+        const prevFolder = folderi[currentFolderIndex - 1];
+        const prevFolderLastImageIndex = prevFolder.files.length - 1;
+        setCurrentFolder(prevFolder);
+        setCurrentImageIndex(prevFolderLastImageIndex);
+        setSelectedImage(prevFolder.files[prevFolderLastImageIndex]);
+      }
+    } else {
+      // Inače, samo pređi na prethodnu sliku u istom folderu
       setCurrentImageIndex(prevIndex);
       setSelectedImage(currentFolder.files[prevIndex]);
     }
-  };
+  }
+};
 
-  // Navigacija desno (sledeća slika)
-  const showNextImage = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    if (currentFolder) {
-      const nextIndex = (currentImageIndex + 1) % currentFolder.files.length;
+// Navigacija desno (sledeća slika ili folder)
+const showNextImage = (e: React.MouseEvent) => {
+  e.stopPropagation();
+
+  if (currentFolder) {
+    const nextIndex = currentImageIndex + 1;
+
+    // Ako je poslednja slika u folderu, pređi na sledeći folder
+    if (nextIndex >= currentFolder.files.length) {
+      const currentFolderIndex = folderi.findIndex(
+        (folder) => folder === currentFolder
+      );
+
+      if (currentFolderIndex < folderi.length - 1) {
+        const nextFolder = folderi[currentFolderIndex + 1];
+        setCurrentFolder(nextFolder);
+        setCurrentImageIndex(0);
+        setSelectedImage(nextFolder.files[0]);
+      }
+    } else {
+      // Inače, samo pređi na sledeću sliku u istom folderu
       setCurrentImageIndex(nextIndex);
       setSelectedImage(currentFolder.files[nextIndex]);
     }
-  };
+  }
+};
 
   return (
     <div className="flex flex-col gap-12">
@@ -66,18 +100,19 @@ const Galerija: React.FC<Gallery> = ({ folderi }) => {
             <h1 className="text-3xl md:text-4xl 2xl:text-5xl font-extrabold bg-gradient-to-r from-[#7DB238] to-[#A1D164] bg-clip-text text-transparent">
               {folder.folder}
             </h1>
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
               {folder.files.map((slika, idx) => (
                 <div
                   key={idx}
                   className="w-full h-72 relative overflow-hidden cursor-pointer"
                   onClick={() => openModal(folder, idx)}
                 >
+                  <span className="bg-gray-200 animate-pulse absolute w-full h-full"/>
                   <Image
                     src={`/gallery/${folder.folder}/${slika}`}
                     alt={slika}
                     fill
-                    className="object-cover hover:scale-110 transition-all duration-200 ease-in-out"
+                    className="object-cover hover:scale-110 z-10 transition-all duration-200 ease-in-out"
                   />
                 </div>
               ))}

@@ -49,7 +49,7 @@ const Navbar = () => {
         />
       </Link>
 
-      <ul className="flex items-center gap-6 bg-gray-200 py-2.5 px-1 rounded-full">
+      <ul className="flex items-center gap-6 bg-gray-100 py-2.5 px-1 rounded-full">
         {links.map((link) => (
           <li key={link.href}>
             <Link

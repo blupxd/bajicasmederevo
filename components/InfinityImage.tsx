@@ -7,9 +7,12 @@ import Image from "next/image";
 
 // Manually list image paths
 const images = [
-  "/showcase/slika1.jpeg",
-  "/showcase/slika2.jpg",
-  "/showcase/slika3.jpg",
+  "/showcase/1.jpg",
+  "/showcase/2.JPG",
+  "/showcase/3.JPG",
+  "/showcase/4.jpg",
+  "/showcase/5.JPG",
+  "/showcase/6.JPG",
 ];
 
 const InfinityImage: React.FC = () => {
@@ -21,7 +24,7 @@ const InfinityImage: React.FC = () => {
 
     const controls = animate(xTranslation, [0, finalPosition], {
       ease: "linear",
-      duration: 25,
+      duration: 45,
       repeat: Infinity,
       repeatType: "loop",
       repeatDelay: 0,

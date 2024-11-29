@@ -35,7 +35,7 @@ const About = () => {
           </h1>
         </Animation1>
 
-        <div className="flex flex-col w-full justify-between">
+        <div className="flex overflow-hidden flex-col w-full justify-between">
           <Animation2>
             <p className="leading-6 md:mt-0 mt-2 text-[#1E1E1E] text-base xl:text-lg 2xl:text-xl">
               Specijalizovani smo za restauraciju starih i istorijskih objekata.

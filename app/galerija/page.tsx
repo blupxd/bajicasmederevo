@@ -16,7 +16,7 @@ const Gallery: React.FC = async () => {
     })
   );
   return (
-    <section className="px-10 lg:px-20 py-16 bg-gradient-to-b from-[#F7FFED] to-white">
+    <section className="px-10 lg:px-20 py-12 bg-gradient-to-b from-[#F7FFED] to-white">
       <Galerija folderi={folderContents} />
     </section>
   );
