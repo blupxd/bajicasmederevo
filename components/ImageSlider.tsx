@@ -5,8 +5,8 @@ import InfinityImage from "./InfinityImage";
 
 const ImageSlider = () => {
   return (
-    <section className="flex flex-col mt-12 xl:mt-0 space-y-12 mb-12">
-      <div className="mx-10 lg:mx-20 flex md:flex-row flex-col md:items-end justify-between">
+    <section className="flex flex-col mt-0 xl:mt-0 space-y-12 mb-12">
+      <div className="mx-4 lg:mx-20 flex md:flex-row flex-col md:items-end justify-between">
         <div className="text-[#1E1E1E] flex flex-col">
           <h1 className="text-3xl sm:text-5xl md:text-4xl font-extrabold">Slike naših radova</h1>
           <p className="text-lg sm:text-xl md:text-lg">
@@ -20,7 +20,6 @@ const ImageSlider = () => {
           Galerija <LuExternalLink className="text-xl mb-1" />
         </Link>
       </div>
-
       <InfinityImage />
     </section>
   );

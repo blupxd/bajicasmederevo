@@ -6,7 +6,7 @@ import { FaFacebook, FaInstagram } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <footer className="px-10 lg:px-20 text-sm py-16 flex lg:flex-row flex-col gap-12 lg:gap-0 lg:justify-between flex-wrap">
+    <footer className="px-4 lg:px-20 text-sm py-16 flex lg:flex-row flex-col gap-12 lg:gap-0 lg:justify-between flex-wrap">
       <div className="flex flex-col space-y-10">
         <Image src="/assets/logo.png" width={150} height={150} alt="logo" />
         <p className="italic leading-6 text-gray-400 w-auto md:w-96 xl:w-[30rem] text-wrap">
@@ -14,15 +14,6 @@ const Footer = () => {
           stručnjaci za restauraciju crkava i graditeljstvo, spajamo tradiciju
           sa savremenim standardima kvaliteta.
         </p>
-        <div className="flex items-center space-x-4 text-[#A2EE42]">
-          <p className="font-semibold">Zapratite nas na</p>
-          <Link href="https://www.instagram.com/bajicasmederevo">
-            <FaInstagram className="w-6 h-6" />
-          </Link>
-          <Link href="https://www.facebook.com/bajica.doo?locale=sr_RS">
-            <FaFacebook className="w-6 h-6" />
-          </Link>
-        </div>
       </div>
       <div className="flex flex-col">
         <h1 className="text-2xl text-[#1E1E1E] font-bold">Meni</h1>

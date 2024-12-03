@@ -15,9 +15,9 @@ const Kontakt = () => {
   return (
     <section
       id="kontakt"
-      className="px-10 scroll-mt-10 lg:px-20 pt-16 pb-96 md:pb-8 bg-[#A2EE42] flex flex-col mb-48"
+      className="px-4 scroll-mt-10 lg:px-20 pt-16 pb-96 md:pb-8 bg-[#A2EE42] flex flex-col mb-32 md:mb-64"
     >
-      <div className="text-[#1e1e1e] flex flex-col text-center max-w-max mx-auto relative h-72 md:h-64">
+      <div className="text-[#1e1e1e] flex flex-col text-center md:mx-auto relative h-72 md:h-64">
         <Animation1>
           <h1 className="font-extrabold text-3xl sm:text-4xl lg:text-5xl">
             Zainteresovani ste za naše usluge?
@@ -27,17 +27,9 @@ const Kontakt = () => {
             Kontaktirajte nas za više informacija
           </h2>
 
-          <div className="flex gap-6 max-w-max mx-auto mt-4 items-center text-[#1E1E1E]">
-            <Link href="https://www.instagram.com/bajicasmederevo">
-              <FaInstagram className="w-8 h-8" />
-            </Link>
-            <Link href="https://www.facebook.com/bajica.doo?locale=sr_RS">
-              <FaFacebook className="w-8 h-8" />
-            </Link>
-          </div>
-          <hr className="w-full border-none bg-gradient-to-r from-transparent via-[#1e1e1e] to-transparent h-0.5 my-6" />
+          <hr className="w-full border-none bg-gradient-to-r from-transparent via-[#1e1e1e] to-transparent h-0.5 my-8" />
         </Animation1>
-        <div className="flex md:flex-row flex-col h-full space-y-16 md:space-y-0 md:justify-between absolute top-72 md:top-48 bottom-0 w-full">
+        <div className="flex md:flex-row flex-col h-full space-y-16 md:space-y-0 md:justify-between absolute top-56 md:top-48 bottom-0 w-full">
           {podaci.map((kontakt: InfoItem) => (
             <div
               key={kontakt.contact}

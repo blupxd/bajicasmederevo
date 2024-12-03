@@ -140,7 +140,7 @@ const showNextImage = (e: React.MouseEvent) => {
               <IoCloseOutline className="text-3xl" />
             </button>
             <motion.div
-              className="relative w-96 max-w-5xl mx-auto h-[70%] md:h-[90%] p-4"
+              className="relative w-full max-w-5xl mx-auto h-[70%] md:h-[90%] p-4"
               initial={{ scale: 0.8 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0.8 }}

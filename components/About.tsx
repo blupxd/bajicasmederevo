@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -16,8 +16,8 @@ const About = () => {
     },
     {
       title: "Godine Postojanja",
-      number: 30,
-      description: "Tri generacije iskustva u obnovi i očuvanju građevina",
+      number: 40,
+      description: "Osnovani 1980ih godine i uspešno poslujemo od tada",
     },
     {
       title: "Završeni projekti",
@@ -26,22 +26,24 @@ const About = () => {
     },
   ];
   return (
-    <section id="o-nama" className="px-10 lg:px-20 mb-12 w-full scroll-mt-20">
+    <section
+      id="o-nama"
+      className="px-4 lg:px-20 mt-20 mb-12 w-full scroll-mt-20"
+    >
       <div className="flex flex-col md:flex-row justify-between w-full md:space-x-20">
         <Animation1>
           <h1 className="text-2xl sm:text-4xl md:text-3xl xl:text-4xl 2xl:text-5xl md:leading-normal 2xl:leading-[3.75rem] w-full font-black italic text-[#1E1E1E]">
-            Porodična firma koja se bavi izvođenjem građevinskih radova već tri
-            generacije unazad
+            Tri generacije tradicije i kvaliteta u svim građevinskim projektima
+            – od restauracija do modernih rešenja.{" "}
           </h1>
         </Animation1>
 
         <div className="flex overflow-hidden flex-col w-full justify-between">
           <Animation2>
-            <p className="leading-6 md:mt-0 mt-2 text-[#1E1E1E] text-base xl:text-lg 2xl:text-xl">
-              Specijalizovani smo za restauraciju starih i istorijskih objekata.
-              Korišćenjem savremenih tehnika, pažljivo obnavljamo zgrade uz
-              očuvanje njihove autentičnosti. Kvalitet i tradicija su nam
-              prioritet.
+            <p className="leading-6 md:mt-0 mt-2 text-[#1E1E1E] text-base xl:text-lg 2xl:text-2xl">
+              Sa tradicijom dugom tri generacije, pružamo vrhunska građevinska
+              rešenja – od restauracija i sanacija do modernizacije prostora,
+              spajajući kvalitet, preciznost i inovativne metode.
             </p>
           </Animation2>
           <Link
@@ -70,7 +72,8 @@ const About = () => {
                 />
               ) : (
                 <h2 className="text-7xl md:text-5xl font-bold">
-                  <CountUp duration={3} end={info.number} /> {index === 2 && '+'}
+                  <CountUp duration={3} end={info.number} />{" "}
+                  {index === 2 && "+"}
                 </h2>
               )}
               <p className="md:text-base text-lg md:mt-6">{info.description}</p>

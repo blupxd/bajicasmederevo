@@ -21,7 +21,7 @@ const Hero = () => {
     },
   ];
   return (
-    <header className="flex lg:pr-0 px-10 lg:pl-20 justify-between pt-40 lg:pt-20 pb-20 lg:pb-0 relative">
+    <header className="flex items-center lg:pr-0 px-4 lg:pl-20 justify-between pt-40 lg:pt-10 pb-48 lg:pb-0 relative">
       <Image
         src="/assets/border.svg"
         alt="border"
@@ -37,7 +37,7 @@ const Hero = () => {
       />
       <Animation1>
         <div className="flex flex-col max-w-max z-20">
-          <h1 className="text-5xl xl:text-6xl text-[#1E1E1E] lg:text-left text-center font-black w-full">
+          <h1 className="text-5xl xl:text-7xl text-[#1E1E1E] lg:text-left text-center font-black w-full">
             BAJICA SMEDEREVO
           </h1>
           <div className="w-full flex flex-col items-center">
@@ -49,24 +49,25 @@ const Hero = () => {
 
             <hr className="w-full border-none bg-gradient-to-r from-transparent via-[#A2EE42] to-transparent h-1 my-4" />
             <p className="text-base md:text-lg xl:text-xl lg:w-[500px] xl:w-[600px] text-[#1E1E1E] text-center leading-6 md:leading-8 italic text-wrap">
-              Posvećeni smo očuvanju i obnavljanju istorijskog nasleđa. Kao
-              stručnjaci za restauraciju crkava i graditeljstvo, spajamo
-              tradiciju sa savremenim standardima kvaliteta.
+              Porodična građevinska firma sa tradicijom od tri generacije,
+              specijalizovana za sve vrste radova – od sanacija i podova do
+              fasada i restauracije objekata. Kvalitet, tradicija i pažnja prema
+              detaljima su naš prioritet.
             </p>
           </div>
           <div className="z-10 max-w-max mx-auto mt-10">
             <Link
-              className="relative  font-semibold hover:text-[#A2EE42] bg-[#1E1E1E] mx-auto max-w-max px-12 my-8 py-2 text-white text-medium z-10 
+              className="relative  font-semibold hover:text-[#A2EE42] bg-[#1E1E1E] mx-auto max-w-max px-12 my-8 py-4 text-white text-medium z-10 
              before:content-[''] transition-all duration-200 before:absolute before:inset-0 before:bg-[#A2EE42] 
              before:w-full before:h-full before:-z-10 before:translate-x-1 before:translate-y-1 
              before:transition-transform before:duration-200 hover:before:translate-x-2 hover:before:translate-y-2"
-              href="#services"
+              href="/galerija"
             >
-              Saznaj više
+              Pogledajte nase radove
             </Link>
           </div>
 
-          <div className="flex justify-between items-start space-x-2 mt-12 lg:mt-8">
+          {/* <div className="flex justify-between items-start space-x-2 mt-12 lg:mt-8">
             {informacije.map((info) => (
               <div
                 key={info.label}
@@ -77,7 +78,7 @@ const Hero = () => {
                 </p>
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
       </Animation1>
       <Image
