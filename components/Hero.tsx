@@ -4,9 +4,6 @@ import Link from "next/link";
 import React from "react";
 import Animation1 from "./Animation1";
 const pacifico = Pacifico({ weight: "400", subsets: ["latin"] });
-interface Info {
-  label: string;
-}
 
 const Hero = () => {
   return (
@@ -55,19 +52,6 @@ const Hero = () => {
               Pogledajte nase radove
             </Link>
           </div>
-
-          {/* <div className="flex justify-between items-start space-x-2 mt-12 lg:mt-8">
-            {informacije.map((info) => (
-              <div
-                key={info.label}
-                className="bg-[#A2EE42] items-center flex justify-center flex-col h-28 p-2 sm:p-2 lg:p-8 rounded-t-3xl text-white border-b-8 border-[#1e1e1e] lg:border-[#F1F1F1]"
-              >
-                <p className="text-xs lg:text-base xl:text-lg text-wrap xl:w-32 text-center ">
-                  {info.label}
-                </p>
-              </div>
-            ))}
-          </div> */}
         </div>
       </Animation1>
       <Image

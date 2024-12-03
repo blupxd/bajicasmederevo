@@ -1,7 +1,6 @@
 import React from "react";
 import { podaci } from "@/constants";
 import Link from "next/link";
-import { FaFacebook, FaInstagram } from "react-icons/fa6";
 import Animation1 from "./Animation1";
 
 interface InfoItem {
