@@ -17,7 +17,7 @@ const About = () => {
     {
       title: "Godine Postojanja",
       number: 40,
-      description: "Osnovani 1980ih godine i uspešno poslujemo od tada",
+      description: "Osnovani 1980ih godina i uspešno poslujemo sve do danas",
     },
     {
       title: "Završeni projekti",
@@ -72,7 +72,7 @@ const About = () => {
                 />
               ) : (
                 <h2 className="text-7xl md:text-5xl font-bold">
-                  <CountUp duration={3} end={info.number} />{" "}
+                  <CountUp duration={3} end={info.number} />
                   {index === 2 && "+"}
                 </h2>
               )}
