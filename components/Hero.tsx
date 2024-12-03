@@ -7,7 +7,7 @@ const pacifico = Pacifico({ weight: "400", subsets: ["latin"] });
 
 const Hero = () => {
   return (
-    <header className="flex items-center lg:pr-0 px-4 lg:pl-20 justify-between pt-40 lg:pt-10 pb-48 lg:pb-0 relative">
+    <header className="flex items-center lg:pr-0 px-4 lg:pl-20 justify-between pt-40 lg:pt-10 pb-32 lg:pb-0 relative">
       <Image
         src="/assets/border.svg"
         alt="border"
@@ -41,7 +41,7 @@ const Hero = () => {
               detaljima su naš prioritet.
             </p>
           </div>
-          <div className="z-10 max-w-max mx-auto mt-10">
+          <div className="z-10 max-w-max mx-auto mt-16">
             <Link
               className="relative  font-semibold hover:text-[#A2EE42] bg-[#1E1E1E] mx-auto max-w-max px-12 my-8 py-4 text-white text-medium z-10 
              before:content-[''] transition-all duration-200 before:absolute before:inset-0 before:bg-[#A2EE42] 
@@ -49,7 +49,7 @@ const Hero = () => {
              before:transition-transform before:duration-200 hover:before:translate-x-2 hover:before:translate-y-2"
               href="/galerija"
             >
-              Pogledajte nase radove
+              Pogledajte naše radove
             </Link>
           </div>
         </div>
