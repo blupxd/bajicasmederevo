@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { BiMenuAltRight } from "react-icons/bi";
-import { FaFacebook, FaInstagram } from "react-icons/fa6";
 import { IoCloseOutline } from "react-icons/io5";
 import { TbPhone } from "react-icons/tb";
 

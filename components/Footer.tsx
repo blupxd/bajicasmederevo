@@ -2,7 +2,6 @@ import { podaci } from "@/constants";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { FaFacebook, FaInstagram } from "react-icons/fa6";
 
 const Footer = () => {
   return (

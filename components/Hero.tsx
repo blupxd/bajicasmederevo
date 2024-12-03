@@ -9,17 +9,6 @@ interface Info {
 }
 
 const Hero = () => {
-  const informacije: Info[] = [
-    {
-      label: "Restauracija spomenika kulture",
-    },
-    {
-      label: "Izgradnja stambenih objekata",
-    },
-    {
-      label: "Sanacija i izrada fasada i podova",
-    },
-  ];
   return (
     <header className="flex items-center lg:pr-0 px-4 lg:pl-20 justify-between pt-40 lg:pt-10 pb-48 lg:pb-0 relative">
       <Image
