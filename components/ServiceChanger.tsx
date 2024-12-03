@@ -34,7 +34,6 @@ const ServiceChanger = () => {
   const isAtEnd = useInView(lastScroll);
   const handleRightClick = () => {
     if (scrollerRef.current) {
-      
       if (isAtEnd) {
         // If it's the last item, scroll to the first
         scrollerRef.current.scrollTo({
@@ -93,7 +92,7 @@ const ServiceChanger = () => {
                   className="absolute p-8 flex flex-col justify-between max-w-max left-0 right-0 top-0 bottom-0 z-20 bg-black/80"
                 >
                   <div className="flex items-start gap-4 justify-between">
-                    <p className="text-sm h-40 border-b-2 border-[#91c551] md:h-full overflow-y-scroll md:text-lg italic text-white font-semibold">
+                    <p className="text-sm border-b-2 pb-2 border-[#91c551] h-full overflow-y-scroll md:text-lg italic text-white font-semibold">
                       {x.description}
                     </p>
                     <button
@@ -103,15 +102,6 @@ const ServiceChanger = () => {
                       <IoCloseOutline className="text-xl" />
                     </button>
                   </div>
-                  <Link
-                    className="md:text-base text-sm relative bg-[#A2EE42] max-w-max px-4 md:px-8 py-2 text-[#1E1E1E] font-semibold
-                  before:content-[''] before:absolute before:inset-0 before:bg-white 
-                  before:w-full before:h-full hover:text-white before:translate-x-1 before:translate-y-1 before:-z-20
-                  before:transition-transform flex items-center gap-2 before:duration-300 hover:before:translate-x-2 hover:before:translate-y-2"
-                    href="/galerija"
-                  >
-                    Galerija <LuExternalLink className="md:text-xl mb-1" />
-                  </Link>
                 </motion.div>
               </AnimatePresence>
             )}
@@ -121,13 +111,24 @@ const ServiceChanger = () => {
                 <h1 className="text-2xl mb-4 md:text-3xl lg:text-4xl text-white font-black">
                   {x.label}
                 </h1>
-                <button
-                  className="flex items-center bg-white text-black px-4 py-2"
-                  onClick={() => setOpenDesc(y)}
-                >
-                  Više informacija{" "}
-                  <IoMdInformationCircleOutline className="w-4 h-4 ml-2" />
-                </button>
+                <div className="flex items-start space-x-4">
+                  <button
+                    className="flex items-center bg-white text-black px-4 py-2"
+                    onClick={() => setOpenDesc(y)}
+                  >
+                    Više informacija{" "}
+                    <IoMdInformationCircleOutline className="w-4 h-4 ml-2" />
+                  </button>
+                  <Link
+                    className="md:text-base text-sm relative bg-[#A2EE42] max-w-max px-4 md:px-8 py-2 text-[#1E1E1E] font-semibold
+                  before:content-[''] before:absolute before:inset-0 before:bg-white 
+                  before:w-full before:h-full hover:text-white before:translate-x-1 before:translate-y-1 before:-z-20
+                  before:transition-transform flex items-center gap-2 before:duration-300 hover:before:translate-x-2 hover:before:translate-y-2"
+                    href="/galerija"
+                  >
+                    Galerija <LuExternalLink className="md:text-xl mb-1" />
+                  </Link>
+                </div>
               </div>
             )}
           </div>
