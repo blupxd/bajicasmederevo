@@ -143,7 +143,7 @@ const Galerija: React.FC<Gallery> = ({ folderi }) => {
             {parentFolder.folder}
           </h2>
           {parentFolder.subFolders.map((subFolder, subIndex) => (
-            <div key={subIndex} className="flex flex-col space-y-4">
+            <div key={subIndex} className="flex flex-col mb-4">
               <h3 className="text-2xl font-semibold text-[#A1D164]">
                 {subFolder.folder}
               </h3>
