@@ -9,10 +9,7 @@ const Footer = () => {
       <div className="flex flex-col space-y-10">
         <Image src="/assets/logo.png" width={150} height={150} alt="logo" />
         <p className="italic leading-6 text-gray-400 w-auto md:w-96 xl:w-[30rem] text-wrap">
-          Porodična građevinska firma sa tradicijom od tri
-          generacije. Specijalizovani smo za sve vrste radova, uz fokus na
-          kvalitet, tradiciju i pažnju prema detaljima. Vaše ideje pretvaramo u
-          stvarnost!
+          Radimo kvalitetno, pouzdano i sa vizijom. Naša stručnost i savremeni pristup garantuju dugotrajna rešenja koja prevazilaze očekivanja.
         </p>
       </div>
       <div className="flex flex-col">
