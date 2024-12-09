@@ -134,7 +134,11 @@ const Galerija: React.FC<Gallery> = ({ folderi }) => {
         Galerija slika
       </h1>
       {folderi.map((parentFolder, parentIndex) => (
-        <div id={parentFolder.folder} key={parentIndex} className="flex flex-col space-y-4">
+        <div
+          id={parentFolder.folder}
+          key={parentIndex}
+          className="flex flex-col space-y-4"
+        >
           <h2 className="text-4xl font-bold text-[#7DB238]">
             {parentFolder.folder}
           </h2>
@@ -183,13 +187,13 @@ const Galerija: React.FC<Gallery> = ({ folderi }) => {
                 onClick={(e) => e.stopPropagation()}
               >
                 <button
-                  className="absolute left-5 text-white text-3xl bg-black bg-opacity-50 p-2 rounded-full z-40"
+                  className="absolute left-5 text-white text-2xl md:text-3xl bg-black bg-opacity-50 p-2 rounded-full z-40"
                   onClick={showPrevImage}
                 >
                   <FaArrowLeft />
                 </button>
                 <button
-                  className="absolute right-5 text-white text-3xl bg-black bg-opacity-50 p-2 rounded-full z-40"
+                  className="absolute right-5 text-white text-2xl md:text-3xl bg-black bg-opacity-50 p-2 rounded-full z-40"
                   onClick={showNextImage}
                 >
                   <FaArrowRight />
@@ -203,7 +207,7 @@ const Galerija: React.FC<Gallery> = ({ folderi }) => {
                 />
                 <div className="absolute flex md:flex-row md:w-auto w-full flex-col left-0 bottom-0 z-30 bg-black/70 px-4 py-2">
                   <h1 className="text-center font-semibold text-sm text-[#A1D164]">
-                    {folderi[currentParentIndex].folder} - 
+                    {folderi[currentParentIndex].folder} -
                   </h1>
                   <h1 className="text-center text-sm text-white italic ">
                     &quot;
@@ -217,10 +221,13 @@ const Galerija: React.FC<Gallery> = ({ folderi }) => {
                 </div>
 
                 <button
-                  className="absolute top-4 right-4 text-white text-3xl"
-                  onClick={closeModal}
+                  className="absolute top-4 right-4 text-[#1e1e1e] text-3xl z-40 p-2 bg-[#A2EE42]"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    closeModal();
+                  }}
                 >
-                  <IoCloseOutline />
+                  <IoCloseOutline className="text-xl md:text-3xl" />
                 </button>
               </motion.div>
             </motion.div>
