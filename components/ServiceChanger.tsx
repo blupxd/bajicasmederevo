@@ -57,7 +57,7 @@ const ServiceChanger = () => {
           Naše usluge
         </h2>
         <hr className="w-full border-none bg-gradient-to-r from-transparent via-[#A2EE42] to-transparent h-0.5 my-16" />
-        <div className="flex items-center space-x-4 md:space-x-8">
+        <div className="flex md:hidden items-center space-x-4 md:space-x-8">
           <button
             onClick={handleLeftClick}
             className="px-4 md:px-6 py-1 border-[#A2EE42] hover:border-transparent hover:bg-[#A2EE42] hover:text-[#1E1E1E] transition-all duration-200 ease-in-out border-2 rounded-full text-[#A2EE42] md:text-xl"
@@ -124,7 +124,7 @@ const ServiceChanger = () => {
                   before:content-[''] before:absolute before:inset-0 before:bg-white 
                   before:w-full before:h-full hover:text-white before:translate-x-1 before:translate-y-1 before:-z-20
                   before:transition-transform flex items-center gap-2 before:duration-300 hover:before:translate-x-2 hover:before:translate-y-2"
-                    href="/galerija"
+                    href={`/galerija/#${x.label}`}
                   >
                     Galerija <LuExternalLink className="md:text-xl mb-1" />
                   </Link>

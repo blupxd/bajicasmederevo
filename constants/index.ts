@@ -12,12 +12,12 @@ export const usluge = [
     label: "Građevinski Radovi za Industrijske i Poslovne Prostore",
     image: "/gallery/Bio Fil Teraco Sanacija/IMG_5785.JPG",
     description: "Pružamo kompletne građevinske usluge za industrijske i poslovne prostore, uključujući izradu visokokvalitetnih podova poput epoxy premaza, adaptaciju i uređenje prostora, kao i modernizaciju infrastrukture. Naš cilj je kreiranje funkcionalnih, estetski privlačnih i dugotrajnih prostora koji odgovaraju potrebama klijenata iz različitih sektora.",
-  },
-  {
-    label: "Fasade i Spoljni Radovi",
-    image: "/gallery/Fasada Kralja Petra/SAJT 1.jpg",
-    description: "Bavimo se restauracijom i izradom fasada na istorijskim objektima, poslovnim zgradama i stambenim jedinicama. Naš tim posvećuje posebnu pažnju detaljima kako bi postigao vrhunski estetski i funkcionalni rezultat, osiguravajući dugotrajnost i otpornost na vremenske uslove.",
-  },
+  }
+  // {
+  //   label: "Fasade i Spoljni Radovi",
+  //   image: "/gallery/Fasada Kralja Petra/SAJT 1.jpg",
+  //   description: "Bavimo se restauracijom i izradom fasada na istorijskim objektima, poslovnim zgradama i stambenim jedinicama. Naš tim posvećuje posebnu pažnju detaljima kako bi postigao vrhunski estetski i funkcionalni rezultat, osiguravajući dugotrajnost i otpornost na vremenske uslove.",
+  // },
 ];
 export const podaci = [
   {
@@ -28,7 +28,7 @@ export const podaci = [
   },
   {
     text: "Pozovite nas na naš broj",
-    contact: "+381 11 1234 567",
+    contact: "+381 63 243 462",
     ref: "tel:",
     icon: TbPhone,
   },

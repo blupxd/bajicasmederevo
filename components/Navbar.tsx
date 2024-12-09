@@ -66,7 +66,7 @@ const Navbar = () => {
         ))}
       </ul>
       <Link
-        href="tel:+381 11 1234 567"
+        href="tel:+381 63 243 462"
         className="px-8 py-3 flex items-center gap-2 rounded-bl-full rounded-tr-full font-medium text-white hover:bg-[#1e1e1e] transition-all duration-200 ease-in-out bg-[#A2EE42]"
       >
         <TbPhone className="text-2xl" /> Pozovite Nas

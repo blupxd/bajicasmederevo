@@ -98,7 +98,7 @@ const MobileNav = () => {
           <li className="mt-12">
             <Link
               onClick={toggleMenu}
-              href="tel:+381 11 1234 567"
+              href="tel:+381 63 243 462"
               className="px-8 py-3 flex items-center gap-2 rounded-bl-full rounded-tr-full font-medium text-white bg-[#A2EE42]"
             >
               <TbPhone className="text-2xl" /> Pozovite Nas
