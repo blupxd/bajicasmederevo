@@ -16,7 +16,6 @@ const Footer = () => {
         <h1 className="text-2xl text-[#1E1E1E] font-bold">Meni</h1>
         <ul className="flex mt-6 flex-col space-y-4 text-gray-400">
           <li>
-            {" "}
             <Link href="/">Početna</Link>
           </li>
           <li>
