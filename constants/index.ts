@@ -4,13 +4,13 @@ import { TbPhone } from "react-icons/tb";
 export const usluge = [
   {
     label: "Restauracija i Očuvanje Kulturnog Nasleđa",
-    image: "/gallery/Restauracija i Očuvanje Kulturnog Nasleđa/Kapela Dine Mančića/2019_11_04_15_35_IMG_1740.JPG",
+    image: "/gallery/Restauracija i Očuvanje Kulturnog Nasleđa/Kapela Dine Mančića - sanacija/2019_11_04_15_35_IMG_1740.JPG",
     description:
       "Specijalizovani smo za restauraciju i sanaciju istorijskih objekata od neprocenjive vrednosti. Naš tim pažljivo obnavlja crkve, manastire, tvrđave, spomenike i druge kulturno-istorijske građevine, koristeći tradicionalne tehnike i najsavremenije materijale kako bismo očuvali njihovu autentičnost i trajnost za buduće generacije.",
   },
   {
     label: "Građevinski Radovi za Industrijske i Poslovne Prostore",
-    image: "/gallery/Građevinski Radovi za Industrijske i Poslovne Prostore/Bio Fil Teraco Sanacija/IMG_5785.JPG",
+    image: "/gallery/Građevinski Radovi za Industrijske i Poslovne Prostore/Bio Fil - sanacija Teraco poda/IMG_5785.JPG",
     description: "Pružamo kompletne građevinske usluge za industrijske i poslovne prostore, uključujući izradu visokokvalitetnih podova poput epoxy premaza, adaptaciju i uređenje prostora, kao i modernizaciju infrastrukture. Naš cilj je kreiranje funkcionalnih, estetski privlačnih i dugotrajnih prostora koji odgovaraju potrebama klijenata iz različitih sektora.",
   }
   // {
