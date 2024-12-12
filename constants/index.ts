@@ -10,7 +10,7 @@ export const usluge = [
   },
   {
     label: "Građevinski Radovi za Industrijske i Poslovne Prostore",
-    image: "/gallery/Građevinski Radovi za Industrijske i Poslovne Prostore/Bio Fil - sanacija Teraco poda/IMG_5785.JPG",
+    image: "/gallery/Građevinski Radovi za Industrijske i Poslovne Prostore/Bio Fil - sanacija teraco poda/IMG_5785.JPG",
     description: "Pružamo kompletne građevinske usluge za industrijske i poslovne prostore, uključujući izradu visokokvalitetnih podova poput epoxy premaza, adaptaciju i uređenje prostora, kao i modernizaciju infrastrukture. Naš cilj je kreiranje funkcionalnih, estetski privlačnih i dugotrajnih prostora koji odgovaraju potrebama klijenata iz različitih sektora.",
   }
   // {
