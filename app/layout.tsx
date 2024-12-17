@@ -8,7 +8,9 @@ const overpass = Overpass({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Bajica Smederevo",
-  description: "Oživljavamo Istoriju, Gradimo Budućnost",
+  keywords: "Srbija, Smederevo, Bajica Smederevo, Bajica, restauracija, sanacija, građevinarstvo, ",
+  description:
+    "Porodična građevinska firma sa tradicijom od tri generacije, specijalizovana za sve vrste radova – od sanacija i podova do fasada i restauracije objekata. Kvalitet, tradicija i pažnja prema detaljima su naš prioritet.",
 };
 
 export default function RootLayout({
@@ -18,9 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="rs">
-      <body
-        className={overpass.className}
-      >
+      <body className={overpass.className}>
         <MobileNav />
         <Navbar />
         {children}
