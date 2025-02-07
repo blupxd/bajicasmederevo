@@ -50,7 +50,7 @@ const Footer = () => {
         </div>
       </div>
       <p className="font-light block lg:hidden max-w-max mx-auto text-sm text-gray-300">
-        © 2024 Bajica Smederevo. Sva prava zadržana.
+        © 2025 Bajica Smederevo. Sva prava zadržana.
       </p>
     </footer>
   );
