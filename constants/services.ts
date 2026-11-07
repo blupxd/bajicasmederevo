@@ -6,6 +6,7 @@ export type Service = {
   slug: string;
   name: string; // short name: nav, footer, cards
   short: string; // one line under the name in the nav panel
+  footerName: string; // the footer's link: worded apart from the nav's, so no anchor text repeats
   title: string; // the h1
   metaTitle: string; // under 60 characters, the brand included
   metaDescription: string; // at most ~135 characters: Google cuts the snippet at about 1000px
@@ -41,6 +42,7 @@ export const services: Service[] = [
     slug: "restauracija-fasada-i-kulturnog-nasledja",
     name: "Restauracija nasleđa",
     short: "Fasade, kamen, statika",
+    footerName: "Restauracija fasada",
     title: "Restauracija fasada i kulturnog nasleđa",
     metaTitle: "Restauracija fasada i spomenika kulture | Bajica Smederevo",
     metaDescription:
@@ -105,6 +107,7 @@ export const services: Service[] = [
     slug: "teraco-i-mermerni-podovi",
     name: "Teraco i mermer",
     short: "Podovi i stepeništa",
+    footerName: "Teraco i mermerni podovi",
     title: "Teraco i mermerni podovi: izrada i obnova",
     metaTitle: "Teraco i mermerni podovi: izrada i obnova | Bajica Smederevo",
     metaDescription:
@@ -115,7 +118,7 @@ export const services: Service[] = [
     about: {
       title: "Podovi koji traju decenijama",
       paragraphs: [
-        "Teraco i mermer su među najtrajnijim podnim oblogama, ali vremenom gube sjaj, pucaju i troše se na mestima gde se najviše hoda. Brušenjem, kitovanjem i poliranjem vraćamo im prvobitni izgled, bez zamene poda.",
+        "Teraco i mermer su među najtrajnijim podnim oblogama, ali vremenom gube sjaj, pucaju i troše se na mestima gde se najviše hoda. Obnova brušenjem, kitovanjem i poliranjem vraća im prvobitni izgled, bez zamene poda.",
         "Novi liveni teraco radimo po meri prostora, u boji i granulaciji koju izaberete. Izradili smo teraco pod u Buda baru, obnovili teraco stepenište u Kalemegdan business centru, sanirali teraco pod u Bio Filu i mermerne površine Centra za kulturu Smederevo.",
       ],
     },
@@ -158,6 +161,7 @@ export const services: Service[] = [
     slug: "epoxy-podovi",
     name: "Epoxy podovi",
     short: "Hale, magacini, radionice",
+    footerName: "Epoxy podovi za hale",
     title: "Epoxy podovi za hale, magacine i radionice",
     metaTitle: "Epoxy podovi za hale i magacine | Bajica Smederevo",
     metaDescription:
@@ -208,6 +212,7 @@ export const services: Service[] = [
     slug: "sanacija-industrijskih-objekata",
     name: "Industrijski objekti",
     short: "Beton, bazeni, hale",
+    footerName: "Industrijske sanacije",
     title: "Sanacija industrijskih objekata",
     metaTitle: "Sanacija industrijskih objekata | Bajica Smederevo",
     metaDescription:
@@ -219,7 +224,7 @@ export const services: Service[] = [
       title: "Radovi u pogonima koji rade",
       paragraphs: [
         "U industrijskom objektu svaki dan zastoja košta. Zato radove planiramo zajedno sa investitorom: po fazama, po zonama ili u terminima kada pogon miruje, tako da proizvodnja stoji što kraće.",
-        "Za Železaru Smederevo obnovili smo bazen otpadnih voda, za Meteh industrijski epoxy pod sa novom signalizacijom, a za Bio Fil teraco pod u proizvodnom delu.",
+        "Sanaciju industrijskih objekata radili smo za Železaru Smederevo, gde smo obnovili bazen otpadnih voda, za Meteh, gde smo sanirali industrijski epoxy pod i iscrtali novu signalizaciju, i za Bio Fil, gde smo obnovili teraco pod u proizvodnom delu.",
       ],
     },
     scope: [

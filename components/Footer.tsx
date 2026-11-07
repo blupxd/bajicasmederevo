@@ -8,21 +8,21 @@ import { RevealText } from "@/components/Reveal";
 const columns = (base: string): { title: string; links: { label: string; href?: string }[] }[] => [
   {
     title: "Usluge",
-    links: services.map((s) => ({ label: s.name, href: serviceHref(s) })),
+    links: services.map((s) => ({ label: s.footerName, href: serviceHref(s) })),
   },
   {
     title: "Firma",
     links: [
-      { label: "Projekti", href: `${base}#projekti` },
-      { label: "Postupak", href: `${base}#postupak` },
-      { label: "O nama", href: `${base}#o-nama` },
-      { label: "Galerija", href: "/galerija" },
+      { label: "Izabrani projekti", href: `${base}#projekti` },
+      { label: "Postupak rada", href: `${base}#postupak` },
+      { label: "O firmi", href: `${base}#o-nama` },
+      { label: "Galerija radova", href: "/galerija" },
     ],
   },
   {
     title: "Kontakt",
     links: [
-      ...phones.map((p) => ({ label: p.label, href: p.href })),
+      ...phones.map((p) => ({ label: `Tel. ${p.label}`, href: p.href })),
       { label: contact.email, href: `mailto:${contact.email}` },
       { label: `${contact.town}, Srbija` },
     ],
@@ -38,8 +38,8 @@ const Footer = ({ base = "", close = true }: { base?: "" | "/"; close?: boolean 
           <div className="section-head mb-0">
             <h2 id="close-h"><RevealText text="Pošaljite nam upit za vaš objekat" /></h2>
             <p>
-              Ili nas pozovite na{" "}
-              <a className="link tabular-nums" href={phones[0].href}>{phones[0].label}</a> ili{" "}
+              Ili nas{" "}
+              <a className="link tabular-nums" href={phones[0].href}>pozovite na {phones[0].label}</a> ili{" "}
               <a className="link tabular-nums" href={phones[1].href}>{phones[1].label}</a>.
             </p>
           </div>
@@ -59,7 +59,7 @@ const Footer = ({ base = "", close = true }: { base?: "" | "/"; close?: boolean 
             <div>
               <a href="/" aria-label="Bajica Smederevo, početna" className="inline-flex">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/assets/logo-horizontal-light.svg" alt="Bajica Smederevo" width={356} height={56} className="h-14 w-auto" />
+                <img src="/assets/logo-horizontal-light.svg" alt="Logo Bajica Smederevo" width={356} height={56} className="h-14 w-auto" />
               </a>
             </div>
             <p className="max-w-[40ch] text-stone-300">

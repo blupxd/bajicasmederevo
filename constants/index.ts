@@ -22,6 +22,8 @@ export const contact = {
 export const social = [{ label: "Instagram", href: "https://www.instagram.com/bajicasmederevo/" }];
 
 export const mainAction = { label: "Zatražite ponudu", href: "#upit" };
+export const navAction = "Pošaljite upit"; // the bar's button
+export const heroAction = "Zakažite obilazak"; // the heroes' button
 
 export type Photo = { src: string; alt: string; pos?: string };
 
@@ -196,6 +198,8 @@ export const about = {
   title: "Porodična firma iz Smedereva",
   lead:
     "Posao je u porodici od 1980-ih i danas ga vodi treća generacija. Oživljavamo istoriju na zaštićenim spomenicima kulture i gradimo budućnost na savremenim poslovnim prostorima, sa istom pažnjom prema detaljima.",
+  more:
+    "Iza nas su radovi na Smederevskoj tvrđavi, Hramu Svetog Đorđa, Gimnaziji i Centru za kulturu Smederevo, ali i u pogonima Železare Smederevo, Meteha i Bio Fila. Tradicionalne tehnike koristimo tamo gde ih objekat traži, a savremene materijale tamo gde pod ili zid moraju da izdrže habanje, vlagu i hemikalije.",
   clientsLabel: "Radili smo za",
   clients: [
     "Železara Smederevo",
@@ -213,6 +217,34 @@ export const about = {
     pos: "50% 40%",
   } as Photo,
 };
+
+// Questions on the home page: answered from what the firm does and has done, nothing promised beyond it
+export const homeFaq = [
+  {
+    q: "Koje radove izvodite?",
+    a: "Restauraciju i sanaciju fasada, crkava, tvrđava i starih zgrada, statičku sanaciju zvonika, svodova i zidova, izradu i obnovu teraco i mermernih podova i stepeništa, epoxy podove za hale, magacine i radionice i sanaciju betona, bazena i podova u industrijskim objektima.",
+  },
+  {
+    q: "Da li radite na spomenicima kulture?",
+    a: "Da. Radili smo na Kuli 9 Smederevske tvrđave, na fasadi i zvoniku Hrama Svetog Đorđa i na kapeli Dine Mančića. Na zaštićenim objektima radove izvodimo prema projektu i uslovima nadležnog zavoda za zaštitu spomenika.",
+  },
+  {
+    q: "Kako izgleda saradnja od upita do završetka radova?",
+    a: "Pozovete nas ili pošaljete e-poštu, a mi dolazimo na obilazak i procenjujemo stanje objekta. Zatim dobijate pisanu ponudu sa opisom radova, materijalima i rokovima. Radove izvodi naš tim, a objekat predajemo očišćen i spreman za upotrebu.",
+  },
+  {
+    q: "Od čega zavise cena i rok radova?",
+    a: "Od veličine objekta, njegovog stanja, obima radova i izabranih materijala. Zato cenu i rok dajemo tek posle obilaska, u pisanoj ponudi, kako biste unapred znali šta plaćate i kada se radovi završavaju.",
+  },
+  {
+    q: "Da li radite van Smedereva?",
+    a: "Da. Sedište nam je u Smederevu, a radove izvodimo širom Srbije, za privatne investitore, firme i javne ustanove.",
+  },
+  {
+    q: "Šta da pošaljem uz upit?",
+    a: "Kratak opis objekta i radova, mesto gde se objekat nalazi i, ako imate, nekoliko fotografija sadašnjeg stanja. Na osnovu toga dogovaramo obilazak.",
+  },
+];
 
 // The 404 page's photograph (not used on the home page)
 export const notFoundPhoto: Photo = {

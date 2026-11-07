@@ -2,7 +2,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { CaretDown, List, X } from "@phosphor-icons/react/dist/ssr";
-import { contact, mainAction, phones } from "@/constants";
+import { contact, mainAction, navAction, phones } from "@/constants";
 import { serviceHref, services } from "@/constants/services";
 import Arrow from "./Arrow";
 import Photo, { zoom } from "./Photo";
@@ -161,7 +161,7 @@ const Navbar = ({ base = "", page, action = `${base}${mainAction.href}` }: Props
               {contact.phone}
             </a>
             <a className="btn btn-primary text-[15px]" href={action}>
-              {mainAction.label}
+              {navAction}
             </a>
           </div>
 
@@ -295,7 +295,7 @@ const Navbar = ({ base = "", page, action = `${base}${mainAction.href}` }: Props
                   </div>
                 </dl>
                 <a className="btn btn-primary group w-full" href={action} onClick={close}>
-                  {mainAction.label}
+                  {navAction}
                   <Arrow />
                 </a>
               </div>

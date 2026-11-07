@@ -78,6 +78,7 @@ export const About = () => (
           <h2 id="o-nama-h"><RevealText text={about.title} /></h2>
           <p>{about.lead}</p>
         </div>
+        <p className="-mt-4 mb-8 max-w-[60ch] text-stone-50/85">{about.more}</p>
         <p className="text-label font-medium text-green-200">{about.clientsLabel}</p>
         <ul className="mt-4 grid grid-cols-2 gap-x-gutter max-sm:text-small">
           {about.clients.map((c) => (

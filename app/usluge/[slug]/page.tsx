@@ -10,7 +10,7 @@ import Kontakt from "@/components/Kontakt";
 import Navbar from "@/components/Navbar";
 import Photo, { zoom } from "@/components/Photo";
 import WorkGallery from "@/components/WorkGallery";
-import { phones, siteUrl } from "@/constants";
+import { heroAction, phones, siteUrl } from "@/constants";
 import { serviceBySlug, serviceHref, services } from "@/constants/services";
 import { projectPhotos } from "@/lib/gallery";
 import { Reveal, RevealText } from "@/components/Reveal";
@@ -102,7 +102,7 @@ const ServicePage = async ({ params }: Params) => {
               <ol className="flex flex-wrap items-center gap-2">
                 <li><a className="hover:text-stone-50 hover:underline" href="/">Početna</a></li>
                 <li aria-hidden="true">/</li>
-                <li><a className="hover:text-stone-50 hover:underline" href="/usluge">Usluge</a></li>
+                <li><a className="hover:text-stone-50 hover:underline" href="/usluge">Sve usluge</a></li>
                 <li aria-hidden="true">/</li>
                 <li aria-current="page" className="text-stone-50">{s.name}</li>
               </ol>
@@ -114,7 +114,7 @@ const ServicePage = async ({ params }: Params) => {
               <p className="mt-4 max-w-[56ch] text-body text-stone-50/90 sm:mt-5 sm:text-lead">{s.lead}</p>
               <div className="mt-5 flex items-center gap-3 sm:mt-8">
                 <a className="btn btn-primary group flex-1 sm:flex-none" href="#upit">
-                  Zatražite ponudu
+                  {heroAction}
                   <Arrow />
                 </a>
                 <a className="btn btn-text tabular-nums decoration-stone-50/40 hover:decoration-current max-sm:hidden" href={phones[0].href}>
@@ -125,7 +125,7 @@ const ServicePage = async ({ params }: Params) => {
                   href={phones[0].href}
                 >
                   <Phone size={22} aria-hidden="true" />
-                  <span className="sr-only">Pozovite {phones[0].label}</span>
+                  <span className="sr-only">Pozovite nas telefonom</span>
                 </a>
               </div>
             </Reveal>
@@ -229,7 +229,7 @@ const ServicePage = async ({ params }: Params) => {
                     <div>
                       <h3 className="text-card font-medium">
                         <a className="card-link" href={serviceHref(o)}>
-                          {o.name}
+                          {o.title}
                         </a>
                       </h3>
                       <p className="text-small text-stone-500">{o.short}</p>

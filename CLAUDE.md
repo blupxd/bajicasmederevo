@@ -33,7 +33,7 @@ Copy is in Serbian (Latin script).
 - **Photos:** all WebP in `public/gallery` (converted from the JPGs in git history; long edge ≤ 3200px).
   Paths have spaces and Serbian letters: `Photo`/`encodeSrc` percent-encode them, or next/image 400s.
   Big frames use `quality={85}` and the 3000px+ originals; `sharp` is a dependency for next/image.
-- **Copy:** plain, category first, buttons are verb + object. Main action everywhere: "Zatražite ponudu" → `#upit`.
+- **Copy:** plain, category first, buttons are verb + object. Main action → `#upit`, worded three ways so no anchor text repeats on a page: "Pošaljite upit" (bar), "Zakažite obilazak" (heroes), "Zatražite ponudu" (the CTA band, the footer close). Footer links are worded apart from the nav's (`footerName`).
   Real contacts from the client: 069/164-2093, 063/24-34-62, info@bajica.rs, Smederevo.
 
 ## Structure

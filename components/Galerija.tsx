@@ -31,7 +31,7 @@ const Galerija = ({ groups }: { groups: Group[] }) => {
         <div className="mb-16 grid max-w-head gap-4">
           <h1><RevealText text="Galerija projekata" onLoad /></h1>
           <p className="text-lead">
-            {shots.length} fotografija sa naših gradilišta, po vrsti radova i projektu. Kliknite na fotografiju da je vidite u punoj veličini.
+            {shots.length} fotografija sa {groups.reduce((n, g) => n + g.projects.length, 0)} projekata, po vrsti radova. Kliknite na fotografiju da je vidite u punoj veličini.
           </p>
           <nav className="mt-3 flex flex-wrap gap-x-6 gap-y-3" aria-label="Vrste radova">
             {groups.map((g) => (

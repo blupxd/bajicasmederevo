@@ -1,5 +1,5 @@
 import { Phone } from "@phosphor-icons/react/dist/ssr";
-import { hero, mainAction, phones } from "@/constants";
+import { hero, heroAction, mainAction, phones } from "@/constants";
 import Arrow from "./Arrow";
 import Photo from "./Photo";
 import { Reveal, RevealText } from "./Reveal";
@@ -31,7 +31,7 @@ const Hero = () => (
           <Reveal as="span" onLoad className="mb-3 flex items-center gap-2.5 text-label font-medium uppercase tracking-[0.06em] text-stone-50/85 sm:mb-5 sm:tracking-[0.14em] sm:gap-3 sm:text-small lg:mb-6">
             <span className="size-2.5 flex-none bg-green-500 sm:size-3" aria-hidden="true" />
             {hero.eyebrow}
-          </Reveal>
+          </Reveal>{" "}
           <span className="block max-w-[16ch] text-[clamp(34px,5.2vw+14px,92px)] leading-[1.02] tracking-[-0.045em]">
             <RevealText text={hero.title} onLoad delay={0.1} stagger={0.07} />
           </span>
@@ -43,7 +43,7 @@ const Hero = () => (
             </p>
             <div className="mt-5 flex items-center gap-3 sm:mt-6 lg:mt-8">
               <a className="btn btn-primary group flex-1 sm:flex-none" href={mainAction.href}>
-                {mainAction.label}
+                {heroAction}
                 <Arrow />
               </a>
               <a className="btn btn-text decoration-stone-50/40 hover:decoration-current max-sm:hidden" href="/usluge">
@@ -54,7 +54,7 @@ const Hero = () => (
                 href={phones[0].href}
               >
                 <Phone size={22} aria-hidden="true" />
-                <span className="sr-only">Pozovite {phones[0].label}</span>
+                <span className="sr-only">Pozovite nas telefonom</span>
               </a>
             </div>
           </Reveal>

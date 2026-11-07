@@ -38,8 +38,8 @@ const Usluge = () => (
             <p className="label">Usluge</p>
             <h1 id="usluge-h" className="text-h2 lg:text-[clamp(48px,3.5vw+10px,64px)]"><RevealText text="Šta radimo" onLoad /></h1>
             <p>
-              Porodična građevinska firma iz Smedereva sa tradicijom od tri generacije. Izaberite uslugu da vidite šta obuhvata i fotografije sa naših
-              gradilišta.
+              Radimo restauraciju fasada i spomenika kulture, teraco, mermerne i epoxy podove i sanacije industrijskih objekata, u Smederevu i
+              širom Srbije. Izaberite uslugu da vidite šta obuhvata i fotografije sa naših gradilišta.
             </p>
           </div>
           <div className="grid-12 gap-y-12">
@@ -55,7 +55,7 @@ const Usluge = () => (
                   <div className="grid gap-2">
                     <h2 className="text-h3">
                       <a className="card-link" href={serviceHref(s)}>
-                        {s.name}
+                        {s.title}
                       </a>
                     </h2>
                     <p className="max-w-[52ch] text-charcoal-600">{s.lead}</p>
