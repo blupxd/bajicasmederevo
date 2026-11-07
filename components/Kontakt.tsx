@@ -1,58 +1,58 @@
-import React from "react";
-import { podaci } from "@/constants";
-import Link from "next/link";
-import Animation1 from "./Animation1";
+import { ArrowUpRight, EnvelopeSimple, Phone } from "@phosphor-icons/react/dist/ssr";
+import { contact, phones } from "@/constants";
 
-interface InfoItem {
-  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
-  text: string;
-  ref: string;
-  contact: string;
-}
+const lines = [
+  ...phones.map((p) => ({ label: "Telefon", value: p.label, href: p.href, Icon: Phone, nums: true })),
+  { label: "E-pošta", value: contact.email, href: `mailto:${contact.email}`, Icon: EnvelopeSimple, nums: false },
+];
 
-const Kontakt = () => {
-  return (
-    <section
-      id="kontakt"
-      className="px-4 scroll-mt-10 lg:px-20 pt-16 pb-96 md:pb-8 bg-[#A2EE42] flex flex-col mb-32 md:mb-64"
-    >
-      <div className="text-[#1e1e1e] flex flex-col text-center md:mx-auto relative h-72 md:h-64">
-        <Animation1>
-          <h1 className="font-extrabold text-3xl sm:text-4xl lg:text-5xl">
-            Zainteresovani ste za naše usluge?
-          </h1>
-
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl">
-            Kontaktirajte nas za više informacija
-          </h2>
-
-          <hr className="w-full border-none bg-gradient-to-r from-transparent via-[#1e1e1e] to-transparent h-0.5 my-8" />
-        </Animation1>
-        <div className="flex md:flex-row flex-col h-full space-y-16 md:space-y-0 md:justify-between absolute top-56 md:top-48 bottom-0 w-full">
-          {podaci.map((kontakt: InfoItem) => (
-            <div
-              key={kontakt.contact}
-              className="bg-white h-full w-full md:w-72 lg:w-96 px-10 lg:px-16 shadow-xl shadow-black/20 py-8 border-b-[0.75rem] border-[#A2EE42] text-base lg:text-lg flex flex-col items-center"
-            >
-              <kontakt.icon className="w-12 h-12 text-[#1e1e1e]" />
-              <h1 className=" text-[#1e1e1e] mt-2 md:mt-6 font-medium -mb-2">
-                {kontakt.text}
-              </h1>
-              <p className="text-[#A2EE42] mt-1 italic font-bold">
-                {kontakt.contact}
-              </p>
-              <Link
-                href={`${kontakt.ref}${kontakt.contact}`}
-                className="px-8 hover:bg-[#1E1E1E] transition-all duration-200 ease-in-out mt-2 md:mt-6 py-1 text-white font-semibold bg-[#A2EE42] max-w-max"
-              >
-                Kontaktiraj
-              </Link>
-            </div>
-          ))}
+// How to reach us: what happens next on the left, the two lines and the e-mail as large rows on the right
+const Kontakt = ({ title = "Zatražite ponudu za vaš objekat" }: { title?: string }) => (
+  <section className="section" id="upit" aria-labelledby="upit-h">
+    <div className="wrap grid-12">
+      <div className="col-span-12 lg:col-span-5">
+        <div className="section-head">
+          <h2 id="upit-h">{title}</h2>
+          <p>Pozovite nas ili pošaljite e-poštu sa opisom objekta i radova. Dogovaramo obilazak i šaljemo pisanu ponudu.</p>
         </div>
+        <dl className="grid grid-cols-2 gap-gutter text-small">
+          <div className="grid gap-1">
+            <dt className="text-stone-500">Sedište</dt>
+            <dd className="font-medium">{contact.town}, Srbija</dd>
+          </div>
+          <div className="grid gap-1">
+            <dt className="text-stone-500">Područje rada</dt>
+            <dd className="font-medium">Cela Srbija</dd>
+          </div>
+        </dl>
       </div>
-    </section>
-  );
-};
+      <ul className="col-span-12 mt-6 border-b border-charcoal/10 lg:col-span-6 lg:col-start-7 lg:mt-0">
+        {lines.map(({ label, value, href, Icon, nums }) => (
+          <li key={href}>
+            <a
+              className="group flex items-center gap-4 border-t border-charcoal/10 py-5 transition-colors hover:bg-stone-100 sm:gap-6 sm:px-4 lg:py-7"
+              href={href}
+            >
+              <span className="grid size-12 flex-none place-items-center bg-green-500 text-charcoal sm:size-14">
+                <Icon size={24} aria-hidden="true" />
+              </span>
+              <span className="grid min-w-0 flex-1 gap-1">
+                <span className="text-small text-stone-500">{label}</span>
+                <span className={`truncate text-[clamp(22px,2vw+12px,36px)] leading-tight tracking-[-0.03em] ${nums ? "tabular-nums" : ""}`}>
+                  {value}
+                </span>
+              </span>
+              <ArrowUpRight
+                size={28}
+                className="flex-none text-stone-500 transition-transform ease-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-charcoal"
+                aria-hidden="true"
+              />
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+);
 
 export default Kontakt;

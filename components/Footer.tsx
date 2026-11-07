@@ -1,59 +1,94 @@
-import { podaci } from "@/constants";
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
+import { contact, mainAction, phones } from "@/constants";
+import { serviceHref, services } from "@/constants/services";
+import Arrow from "./Arrow";
 
-const Footer = () => {
-  return (
-    <footer className="px-4 lg:px-20 text-sm py-16 flex lg:flex-row flex-col gap-12 lg:gap-0 lg:justify-between flex-wrap">
-      <div className="flex flex-col space-y-10">
-        <Image src="/assets/logo.png" width={150} height={150} alt="logo" />
-        <p className="italic leading-6 text-gray-400 w-auto md:w-96 xl:w-[30rem] text-wrap">
-          Radimo kvalitetno, pouzdano i sa vizijom. Naša stručnost i savremeni pristup garantuju dugotrajna rešenja koja prevazilaze očekivanja.
-        </p>
-      </div>
-      <div className="flex flex-col">
-        <h1 className="text-2xl text-[#1E1E1E] font-bold">Meni</h1>
-        <ul className="flex mt-6 flex-col space-y-4 text-gray-400">
-          <li>
-            <Link href="/">Početna</Link>
-          </li>
-          <li>
-            <Link href="/galerija">Galerija</Link>
-          </li>
-          <li>
-            <Link href="#o-nama">O nama</Link>
-          </li>
-        </ul>
-      </div>
-      <div className="flex flex-col">
-        <h1 className="text-2xl text-[#1E1E1E] font-bold">
-          Kontaktirajte nas putem
-        </h1>
-        <div className="flex flex-col justify-between h-full">
-          <div className="flex flex-col space-y-4 mt-6 text-gray-400">
-            {podaci.map((podatak) => (
-              <div key={podatak.contact} className="flex items-center gap-4">
-                <podatak.icon className="h-6 w-6" />
-                <Link
-                  className="font-medium"
-                  href={`${podatak.ref}${podatak.contact}`}
-                >
-                  {podatak.contact}
-                </Link>
-              </div>
-            ))}
+const columns = (base: string): { title: string; links: { label: string; href?: string }[] }[] => [
+  {
+    title: "Usluge",
+    links: services.map((s) => ({ label: s.name, href: serviceHref(s) })),
+  },
+  {
+    title: "Firma",
+    links: [
+      { label: "Projekti", href: `${base}#projekti` },
+      { label: "Postupak", href: `${base}#postupak` },
+      { label: "O nama", href: `${base}#o-nama` },
+      { label: "Galerija", href: "/galerija" },
+    ],
+  },
+  {
+    title: "Kontakt",
+    links: [
+      ...phones.map((p) => ({ label: p.label, href: p.href })),
+      { label: contact.email, href: `mailto:${contact.email}` },
+      { label: `${contact.town}, Srbija` },
+    ],
+  },
+];
+
+// The footer on the charcoal ground: the close (the main action) on pages without the contact section, then the links
+const Footer = ({ base = "", close = true }: { base?: "" | "/"; close?: boolean }) => (
+  <footer className="on-dark bg-charcoal pb-10 pt-16 text-stone-50 lg:pt-24" aria-labelledby={close ? "close-h" : undefined}>
+    <div className="wrap">
+      {close && (
+        <div className="mb-16 grid justify-items-start gap-head lg:mb-24">
+          <div className="section-head mb-0">
+            <h2 id="close-h">Pošaljite nam upit za vaš objekat</h2>
+            <p>
+              Ili nas pozovite na{" "}
+              <a className="link tabular-nums" href={phones[0].href}>{phones[0].label}</a> ili{" "}
+              <a className="link tabular-nums" href={phones[1].href}>{phones[1].label}</a>.
+            </p>
           </div>
-          <p className="font-light lg:block hidden text-sm text-gray-300">
-            © 2024 Bajica Smederevo. Sva prava zadržana.
-          </p>
+          <a
+            className="btn btn-primary group h-[clamp(64px,1.4vw+48px,72px)] w-full max-w-[640px] text-[clamp(20px,0.6vw+16px,26px)] font-normal tracking-[-0.035em]"
+            href={`${base}${mainAction.href}`}
+          >
+            {mainAction.label}
+            <Arrow size={24} />
+          </a>
         </div>
+      )}
+
+      <div className={close ? "border-t border-stone-50/15 pt-12" : ""}>
+        <div className="grid-12 gap-y-10">
+          <div className="col-span-12 grid content-start gap-4 lg:col-span-4">
+            <div>
+              <a href="/" aria-label="Bajica Smederevo, početna" className="inline-flex">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/assets/logo-horizontal-light.svg" alt="Bajica Smederevo" width={356} height={56} className="h-14 w-auto" />
+              </a>
+            </div>
+            <p className="max-w-[40ch] text-stone-300">
+              Porodična građevinska firma: restauracija fasada i kulturnog nasleđa, teraco, mermerni i epoxy podovi. Smederevo, Srbija.
+            </p>
+          </div>
+          {columns(base).map((c, i) => (
+            <div key={c.title} className={`col-span-6 sm:col-span-4 lg:col-span-2 ${i === 0 ? "lg:col-start-7" : ""}`}>
+              <h4 className="mb-4 text-small font-medium text-stone-300">{c.title}</h4>
+              <ul className="grid gap-2">
+                {c.links.map((l) => (
+                  <li key={l.label}>
+                    {l.href ? (
+                      <a
+                        className="underline decoration-transparent underline-offset-4 transition-colors hover:decoration-green-500"
+                        href={l.href}
+                      >
+                        {l.label}
+                      </a>
+                    ) : (
+                      l.label
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+        <p className="mt-12 text-small text-stone-300">&copy; {new Date().getFullYear()} Bajica Smederevo. Sva prava zadržana.</p>
       </div>
-      <p className="font-light block lg:hidden max-w-max mx-auto text-sm text-gray-300">
-        © 2025 Bajica Smederevo. Sva prava zadržana.
-      </p>
-    </footer>
-  );
-};
+    </div>
+  </footer>
+);
 
 export default Footer;

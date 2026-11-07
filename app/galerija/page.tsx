@@ -1,36 +1,30 @@
-import React from "react";
-import path from "path";
-import { promises as fs } from "fs";
+import type { Metadata } from "next";
+import Footer from "@/components/Footer";
 import Galerija from "@/components/Galerija";
+import Navbar from "@/components/Navbar";
+import { galleryGroups } from "@/constants";
+import { allGroups } from "@/lib/gallery";
 
-const Gallery: React.FC = async () => {
-  const imageDirectory = path.join(process.cwd(), "public/gallery");
-  const parentFolders = await fs.readdir(imageDirectory);
+export const metadata: Metadata = {
+  title: { absolute: "Galerija projekata | Bajica Smederevo" },
+  description:
+    "Fotografije sa naših gradilišta: restauracija fasada i spomenika kulture, teraco, mermerni i epoxy podovi i sanacija industrijskih objekata u Smederevu i Srbiji.",
+  alternates: { canonical: "/galerija" },
+};
 
-  const folderContents = await Promise.all(
-    parentFolders.map(async (parentFolder) => {
-      const parentFolderPath = path.join(imageDirectory, parentFolder);
-      const subFolders = await fs.readdir(parentFolderPath);
-
-      // Kreiranje strukture za svaki podfolder sa slikama
-      const subFolderContents = await Promise.all(
-        subFolders.map(async (subFolder) => {
-          const subFolderPath = path.join(parentFolderPath, subFolder);
-          const files = await fs.readdir(subFolderPath);
-          return { folder: subFolder, files };
-        })
-      );
-
-      return { folder: parentFolder, subFolders: subFolderContents };
-    })
-  );
+// Reads public/gallery: one folder a kind of work, one subfolder a project, its photographs inside
+const Gallery = async () => {
+  const groups = (await allGroups()).map((g) => ({ ...g, title: galleryGroups[g.folder] ?? g.folder }));
 
   return (
-    <section className="px-4 lg:px-20 pt-24 pb-12 md:py-12 bg-gradient-to-b from-[#F7FFED] to-white">
-      <Galerija folderi={folderContents} />
-    </section>
+    <>
+      <Navbar base="/" page="galerija" />
+      <main id="top">
+        <Galerija groups={groups} />
+      </main>
+      <Footer base="/" />
+    </>
   );
 };
 
 export default Gallery;
-

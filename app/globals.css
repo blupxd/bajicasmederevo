@@ -2,25 +2,72 @@
 @tailwind components;
 @tailwind utilities;
 
-html{
-  scroll-behavior: smooth;
+/* The page rhythm: a fixed header --nav tall; content on one 1280px column with --gut at both sides. */
+:root {
+  --nav: 72px;
+  --gut: 80px;
+  --gutter: 24px;
+  --head-gap: 40px;
+
+  --t-lead: 18px;
+  --t-card: 18px;
+  --t-h3: 24px;
+  --t-h2: clamp(30px, 1.72vw + 23.3px, 48px);
+  --t-h1: clamp(38px, 3.24vw + 25.4px, 72px);
+}
+@media (max-width: 639px) {
+  :root { --nav: 56px; --gut: 24px; --gutter: 12px; --head-gap: 28px; }
+}
+@media (min-width: 640px) and (max-width: 1023px) {
+  :root { --gut: 48px; }
+}
+@media (min-width: 1024px) {
+  :root { --t-lead: 20px; --t-card: 20px; --t-h3: 28px; }
 }
 
+@layer base {
+  html { -webkit-text-size-adjust: 100%; }
+  body { @apply bg-stone-50 text-body text-charcoal antialiased; }
+  h1, h2, h3, h4 { @apply font-normal; text-wrap: balance; overflow-wrap: break-word; }
+  h1 { @apply text-h1; }
+  h2 { @apply text-h2; }
+  p { text-wrap: pretty; }
+  img { @apply block max-w-full; }
+  :focus-visible { @apply outline outline-2 outline-offset-2 outline-green-600; }
+  ::selection { @apply bg-green-200; }
+}
 
-.scroller {
-    display: grid;
-    grid-auto-flow: column;
-    overflow-x: auto;
-    scrollbar-width: none;
-    overscroll-behavior-inline: contain;
+@layer components {
+  /* the one column: 1280 wide at x 80-1360 at 1440, 342 at x 24-366 at 390 */
+  .wrap { @apply mx-auto w-[calc(100%-2*var(--gut))] max-w-wrap; }
+  .grid-12 { @apply grid grid-cols-12 gap-x-gutter gap-y-6; }
+
+  /* a section is as tall as its content, with one padding above and below */
+  .section { @apply relative py-16 sm:py-20 lg:py-24; }
+
+  .section-head { @apply mb-head grid max-w-head gap-4; }
+  .section-head > p { @apply max-w-[60ch] text-lead; }
+
+  /* a section's small green marker: a 12px square in the logo green before the label */
+  .label { @apply inline-flex items-center gap-3 text-label font-medium text-stone-500; }
+  .label::before { content: ""; @apply size-3 flex-none bg-green-500; }
+
+  /* one button look: square, 48px, the logo green with a charcoal label; steps on hover, presses on click */
+  .btn {
+    @apply inline-flex h-12 cursor-pointer items-center justify-center gap-2 whitespace-nowrap border border-transparent px-6
+      text-body font-medium leading-none transition-[background-color,color,transform] ease-out
+      active:translate-y-px active:scale-[.985] motion-reduce:transition-none;
   }
-  .scroller::-webkit-scrollbar {
-    display: none;
+  .btn-primary { @apply bg-green-500 text-charcoal hover:bg-green-550; }
+  /* the secondary: an underlined text link at the button's height */
+  .btn-text {
+    @apply px-2 underline decoration-charcoal/25 underline-offset-4 hover:decoration-current;
   }
-  .snaps-inline {
-    scroll-snap-type: inline mandatory;
+
+  /* a text link: green on light grounds, light green on dark, an arrow that moves 3px on hover */
+  .link {
+    @apply inline-flex items-center gap-2 font-medium text-green-700 underline decoration-green-700/35 underline-offset-4
+      transition-colors hover:decoration-current;
   }
-  .snaps-inline > * {
-    scroll-snap-align: start;
-  }
-  
+  .on-dark .link { @apply text-green-300 decoration-green-300/40; }
+}

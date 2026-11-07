@@ -1,69 +1,52 @@
-import { Pacifico } from "next/font/google";
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
-import Animation1 from "./Animation1";
-const pacifico = Pacifico({ weight: "400", subsets: ["latin"] });
+import { hero, mainAction } from "@/constants";
+import Arrow from "./Arrow";
+import Photo from "./Photo";
 
-const Hero = () => {
-  return (
-    <header className="flex items-center lg:pr-0 px-4 lg:pl-20 justify-between pt-40 lg:pt-10 pb-32 lg:pb-0 relative">
-      <Image
-        src="/assets/border.svg"
-        alt="border"
-        width={100}
-        height={100}
-        className="w-full absolute -bottom-20 sm:hidden left-0 right-0 z-20"
-      />
-      <Image
-        src="/assets/bg.jpg"
-        fill
-        className="object-cover lg:hidden opacity-10 z-10"
-        alt="BG"
-      />
-      <Animation1>
-        <div className="flex flex-col max-w-max z-20">
-          <h1 className="text-5xl xl:text-7xl text-[#1E1E1E] lg:text-left text-center font-black w-full">
-            BAJICA SMEDEREVO
-          </h1>
-          <div className="w-full flex flex-col items-center">
-            <h2
-              className={`${pacifico.className} text-xl xl:text-3xl text-[#1E1E1E] text-center`}
-            >
-              Oživljavamo Istoriju, Gradimo Budućnost
-            </h2>
+// The first screen: the client's photograph edge to edge under the bar, the firm's name and slogan in
+// warm white on its lower left. Three layers keep the words readable on any photograph without a hard
+// band: a light charcoal veil over all of it, a fade up from the foot, and a fade in from the left edge.
+const Hero = () => (
+  <section
+    className="relative mt-nav flex h-[calc(100svh-var(--nav))] min-h-[600px] max-h-[1000px] items-end overflow-hidden bg-charcoal text-stone-50"
+    aria-labelledby="hero-h"
+  >
+    <Photo photo={hero.photo} sizes="100vw" priority quality={85} />
+    <div className="absolute inset-0 bg-charcoal/30" aria-hidden="true" />
+    <div className="absolute inset-0 bg-gradient-to-t from-charcoal/95 via-charcoal/45 to-charcoal/0" aria-hidden="true" />
+    <div className="absolute inset-y-0 left-0 w-full bg-gradient-to-r from-charcoal/55 via-charcoal/20 to-charcoal/0 lg:w-3/4" aria-hidden="true" />
 
-            <hr className="w-full border-none bg-gradient-to-r from-transparent via-[#A2EE42] to-transparent h-1 my-4" />
-            <p className="text-base md:text-lg xl:text-xl lg:w-[500px] xl:w-[600px] text-[#1E1E1E] text-center leading-6 md:leading-8 italic text-wrap">
-              Porodična građevinska firma sa tradicijom od tri generacije,
-              specijalizovana za sve vrste radova – od sanacija i podova do
-              fasada i restauracije objekata. Kvalitet, tradicija i pažnja prema
-              detaljima su naš prioritet.
-            </p>
-          </div>
-          <div className="z-10 max-w-max mx-auto mt-16">
-            <Link
-              className="relative  font-semibold hover:text-[#A2EE42] bg-[#1E1E1E] mx-auto max-w-max px-12 my-8 py-4 text-white text-medium z-10 
-             before:content-[''] transition-all duration-200 before:absolute before:inset-0 before:bg-[#A2EE42] 
-             before:w-full before:h-full before:-z-10 before:translate-x-1 before:translate-y-1 
-             before:transition-transform before:duration-200 hover:before:translate-x-2 hover:before:translate-y-2"
-              href="/galerija"
-            >
-              Pogledajte naše radove
-            </Link>
+    <div className="wrap relative pb-10 sm:pb-14 lg:pb-16">
+      <h1 id="hero-h">
+        <span className="mb-5 flex items-center gap-3 text-small font-medium uppercase tracking-[0.14em] text-stone-50/85 lg:mb-6">
+          <span className="size-3 flex-none bg-green-500" aria-hidden="true" />
+          {hero.eyebrow}
+        </span>
+        <span className="block max-w-[16ch] text-[clamp(42px,5.2vw+12px,92px)] leading-[1.0] tracking-[-0.045em]">{hero.title}</span>
+      </h1>
+      <div className="mt-6 grid gap-8 lg:mt-8 lg:grid-cols-12 lg:items-end lg:gap-x-gutter">
+        <div className="lg:col-span-6">
+          <p className="max-w-[56ch] text-lead text-stone-50/90">{hero.lead}</p>
+          <div className="mt-6 flex flex-wrap items-center gap-3 lg:mt-8">
+            <a className="btn btn-primary group max-sm:w-full" href={mainAction.href}>
+              {mainAction.label}
+              <Arrow />
+            </a>
+            <a className="btn btn-text decoration-stone-50/40 hover:decoration-current" href="/usluge">
+              Pogledajte usluge
+            </a>
           </div>
         </div>
-      </Animation1>
-      <Image
-        src="/assets/Hero.png"
-        width={500}
-        height={500}
-        alt="Hero Image"
-        className="2xl:w-fit lg:block hidden w-[400px] xl:w-[500px] h-fit"
-        quality={100}
-      />
-    </header>
-  );
-};
+        <dl className="grid grid-cols-3 border-t border-stone-50/25 pt-4 lg:col-span-5 lg:col-start-8">
+          {hero.facts.map((f) => (
+            <div key={f.label} className="grid content-start gap-1">
+              <dt className="text-small text-stone-50/70">{f.label}</dt>
+              <dd className="text-lead font-medium">{f.value}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </div>
+  </section>
+);
 
 export default Hero;
