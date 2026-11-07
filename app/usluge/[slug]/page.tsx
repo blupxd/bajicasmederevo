@@ -91,7 +91,7 @@ const ServicePage = async ({ params }: Params) => {
       <main id="top">
         {/* the first screen: the work edge to edge, the name lower left */}
         <section
-          className="relative mt-nav flex h-[calc(88svh-var(--nav))] min-h-[520px] max-h-[860px] items-end overflow-hidden bg-charcoal text-stone-50"
+          className="relative mt-nav flex h-[calc(88vh-var(--nav))] min-h-[460px] max-h-[860px] supports-[height:100dvh]:h-[calc(88dvh-var(--nav))] sm:min-h-[520px] items-end overflow-hidden bg-charcoal text-stone-50"
           aria-labelledby="usluga-h"
         >
           <Photo photo={s.hero} sizes="100vw" priority quality={85} />

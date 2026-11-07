@@ -12,7 +12,7 @@ import { Reveal, RevealText } from "./Reveal";
 const Hero = () => (
   <>
     <section
-      className="relative mt-nav flex h-[calc(100svh-var(--nav))] min-h-[520px] max-h-[1000px] items-end overflow-hidden bg-charcoal text-stone-50 sm:min-h-[600px]"
+      className="relative mt-nav flex h-[calc(100vh-var(--nav))] min-h-[460px] max-h-[1000px] supports-[height:100dvh]:h-[calc(100dvh-var(--nav))] items-end overflow-hidden bg-charcoal text-stone-50 sm:min-h-[600px]"
       aria-labelledby="hero-h"
     >
       <Photo photo={hero.photo} sizes="100vw" priority quality={85} />
