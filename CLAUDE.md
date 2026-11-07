@@ -52,6 +52,12 @@ Copy is in Serbian (Latin script).
   (`lib/gallery.ts`); the viewer is `components/Viewer.tsx`, shared with WorkGallery.
 - `app/not-found.tsx`: the 404 ("Ovde još nismo gradili").
 - No contact form (the user removed it): Kontakt is two phone rows and the e-mail.
+- Motion: Framer Motion. `components/Reveal.tsx`: `RevealText` (a heading's words rise from a mask, on load in the
+  heroes, on first view elsewhere) and `Reveal` (a block fades up). `AnimatePresence` mounts the phone menu sheet,
+  the call button's card and the photo viewer. `MotionRoot` (MotionConfig reducedMotion="user") wraps the site.
+- SEO: descriptions ≤ ~135 characters (Seobility's 1000px), `<html lang="sr">`, `app/apple-icon.png`, share links
+  in the footer (`components/Share.tsx`), card links are the heading only (`.card-link` covers the card),
+  `social` in constants holds Bajica's Instagram (no Facebook page yet).
 - Icons: Phosphor only (`@phosphor-icons/react/dist/ssr`), never hand-drawn SVG. `components/Arrow.tsx` wraps ArrowRight.
 
 ## Status (2026-11-07)

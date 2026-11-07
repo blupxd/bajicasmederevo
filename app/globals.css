@@ -71,3 +71,9 @@
   }
   .on-dark .link { @apply text-green-300 decoration-green-300/40; }
 }
+
+@layer components {
+  /* a card's one link: its heading. Its ::after covers the whole card (the card is `relative`), so the card
+     clicks as one while the link's text stays short */
+  .card-link::after { content: ""; @apply absolute inset-0 z-[1]; }
+}

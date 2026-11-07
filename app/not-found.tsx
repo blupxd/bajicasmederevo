@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import Photo from "@/components/Photo";
 import { notFoundPhoto, phones } from "@/constants";
+import { RevealText } from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "Stranica nije pronađena: Bajica Smederevo",
@@ -19,7 +20,7 @@ const NotFound = () => (
         <div className="wrap grid-12">
           <div className="col-span-12 flex flex-col lg:col-span-5 lg:py-8">
             <p className="label">Greška 404</p>
-            <h1 id="nf-h" className="mt-6">Ovde još nismo gradili</h1>
+            <h1 id="nf-h" className="mt-6"><RevealText text="Ovde još nismo gradili" onLoad /></h1>
             <p className="mt-6 max-w-[48ch] text-lead">
               Stranica koju tražite ne postoji ili je premeštena. Vratite se na početnu ili pogledajte radove u galeriji.
             </p>

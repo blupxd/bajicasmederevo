@@ -1,10 +1,10 @@
 "use client";
 import Image from "next/image";
 import { CaretLeft, CaretRight, X } from "@phosphor-icons/react/dist/ssr";
+import { AnimatePresence, motion } from "framer-motion";
 import { useCallback, useEffect, useState } from "react";
 
 export type Shot = { src: string; project: string };
-
 
 // the viewer's square controls: charcoal, the logo green on hover
 const viewerBtn =
@@ -37,43 +37,65 @@ export const useViewer = (count: number) => {
 
 const Viewer = ({ shots, open, close, step }: { shots: Shot[] } & Omit<ReturnType<typeof useViewer>, "setOpen">) => {
   const shot = open === null ? null : shots[open];
-  if (!shot) return null;
   return (
-    <div
-      className="fixed inset-0 z-[100] grid grid-rows-[auto_minmax(0,1fr)] bg-charcoal-950 text-stone-50"
-      role="dialog"
-      aria-modal="true"
-      aria-label={shot.project}
-      onClick={close}
-    >
-      <div className="flex h-nav items-center justify-between gap-4 border-b border-stone-50/15 px-gut" onClick={(e) => e.stopPropagation()}>
-        <p className="text-small">
-          {shot.project} <span className="text-stone-300">· {open! + 1} / {shots.length}</span>
-        </p>
-        <button className={viewerBtn} type="button" onClick={close} aria-label="Zatvorite">
-          <X size={20} aria-hidden="true" />
-        </button>
-      </div>
-      <div className="relative mx-gut my-8" onClick={(e) => e.stopPropagation()}>
-        <button
-          className={`${viewerBtn} absolute left-0 top-1/2 z-10 -translate-y-1/2`}
-          type="button"
-          onClick={() => step(-1)}
-          aria-label="Prethodna fotografija"
+    <AnimatePresence>
+      {shot && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, transition: { duration: 0.25 } }}
+          exit={{ opacity: 0, transition: { duration: 0.2 } }}
+          className="fixed inset-0 z-[100] grid grid-rows-[auto_minmax(0,1fr)] bg-charcoal-950 text-stone-50"
+          role="dialog"
+          aria-modal="true"
+          aria-label={shot.project}
+          onClick={close}
         >
-          <CaretLeft size={20} aria-hidden="true" />
-        </button>
-        <Image key={shot.src} src={shot.src} alt={shot.project} fill sizes="100vw" quality={85} className="object-contain" />
-        <button
-          className={`${viewerBtn} absolute right-0 top-1/2 z-10 -translate-y-1/2`}
-          type="button"
-          onClick={() => step(1)}
-          aria-label="Sledeća fotografija"
-        >
-          <CaretRight size={20} aria-hidden="true" />
-        </button>
-      </div>
-    </div>
+          <div
+            className="flex h-nav items-center justify-between gap-4 border-b border-stone-50/15 px-gut"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <p className="text-small">
+              {shot.project}{" "}
+              <span className="text-stone-300">
+                · {open! + 1} / {shots.length}
+              </span>
+            </p>
+            <button className={viewerBtn} type="button" onClick={close} aria-label="Zatvorite">
+              <X size={20} aria-hidden="true" />
+            </button>
+          </div>
+          <div className="relative mx-gut my-8" onClick={(e) => e.stopPropagation()}>
+            <button
+              className={`${viewerBtn} absolute left-0 top-1/2 z-10 -translate-y-1/2`}
+              type="button"
+              onClick={() => step(-1)}
+              aria-label="Prethodna fotografija"
+            >
+              <CaretLeft size={20} aria-hidden="true" />
+            </button>
+            <AnimatePresence initial={false}>
+              <motion.div
+                key={shot.src}
+                className="absolute inset-0"
+                initial={{ opacity: 0, scale: 0.98 }}
+                animate={{ opacity: 1, scale: 1, transition: { duration: 0.35, ease: [0.2, 0.7, 0.2, 1] } }}
+                exit={{ opacity: 0, transition: { duration: 0.2 } }}
+              >
+                <Image src={shot.src} alt={shot.project} fill sizes="100vw" quality={85} className="object-contain" />
+              </motion.div>
+            </AnimatePresence>
+            <button
+              className={`${viewerBtn} absolute right-0 top-1/2 z-10 -translate-y-1/2`}
+              type="button"
+              onClick={() => step(1)}
+              aria-label="Sledeća fotografija"
+            >
+              <CaretRight size={20} aria-hidden="true" />
+            </button>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 };
 

@@ -8,7 +8,7 @@ import { allGroups } from "@/lib/gallery";
 export const metadata: Metadata = {
   title: { absolute: "Galerija projekata | Bajica Smederevo" },
   description:
-    "Fotografije sa naših gradilišta: restauracija fasada i spomenika kulture, teraco, mermerni i epoxy podovi i sanacija industrijskih objekata u Smederevu i Srbiji.",
+    "Fotografije sa naših gradilišta: restauracija fasada i spomenika kulture, teraco, mermerni i epoxy podovi i industrijske sanacije.",
   alternates: { canonical: "/galerija" },
 };
 

@@ -8,7 +8,7 @@ export type Service = {
   short: string; // one line under the name in the nav panel
   title: string; // the h1
   metaTitle: string; // under 60 characters, the brand included
-  metaDescription: string; // 140-160 characters
+  metaDescription: string; // at most ~135 characters: Google cuts the snippet at about 1000px
   keywords: string[];
   lead: string;
   about: { title: string; paragraphs: string[] };
@@ -44,7 +44,7 @@ export const services: Service[] = [
     title: "Restauracija fasada i kulturnog nasleđa",
     metaTitle: "Restauracija fasada i spomenika kulture | Bajica Smederevo",
     metaDescription:
-      "Restauracija i sanacija fasada, crkava, tvrđava i starih zgrada tradicionalnim tehnikama. Radili smo na Smederevskoj tvrđavi i Hramu Svetog Đorđa. Zatražite ponudu.",
+      "Restauracija fasada, crkava i tvrđava tradicionalnim tehnikama. Radili smo na Smederevskoj tvrđavi i Hramu Svetog Đorđa.",
     keywords: [
       "restauracija fasade",
       "sanacija fasade",
@@ -108,7 +108,7 @@ export const services: Service[] = [
     title: "Teraco i mermerni podovi: izrada i obnova",
     metaTitle: "Teraco i mermerni podovi: izrada i obnova | Bajica Smederevo",
     metaDescription:
-      "Izrada livenog teraco poda po meri, brušenje i poliranje starih teraco i mermernih podova i stepeništa. Lokali, poslovne zgrade i javni objekti. Zatražite ponudu.",
+      "Liveni teraco po meri, brušenje i poliranje starih teraco i mermernih podova i stepeništa. Porodična firma iz Smedereva.",
     keywords: ["teraco pod", "liveni teraco", "poliranje teraca", "restauracija mermera", "brušenje mermera", "teraco stepenište"],
     lead:
       "Izrađujemo nove teraco podove po meri i vraćamo sjaj starim teraco i mermernim podovima i stepeništima, u lokalima, poslovnim zgradama i javnim objektima.",
@@ -161,7 +161,7 @@ export const services: Service[] = [
     title: "Epoxy podovi za hale, magacine i radionice",
     metaTitle: "Epoxy podovi za hale i magacine | Bajica Smederevo",
     metaDescription:
-      "Izrada i sanacija bešavnih epoxy podova otpornih na habanje i hemikalije, za proizvodne hale, magacine i radionice, sa iscrtavanjem signalizacije. Zatražite ponudu.",
+      "Bešavni epoxy podovi otporni na habanje i hemikalije za hale, magacine i radionice, sa signalizacijom. Smederevo i Srbija.",
     keywords: ["epoxy pod", "epoksidni pod", "industrijski pod", "epoxy pod cena", "sanacija epoxy poda", "pod za halu"],
     lead:
       "Izlivamo bešavne epoxy podove otporne na habanje i hemikalije i saniramo postojeće, za proizvodne hale, magacine i radionice.",
@@ -211,7 +211,7 @@ export const services: Service[] = [
     title: "Sanacija industrijskih objekata",
     metaTitle: "Sanacija industrijskih objekata | Bajica Smederevo",
     metaDescription:
-      "Sanacija betonskih konstrukcija, bazena i industrijskih podova u pogonima koji ne smeju dugo da stoje. Radili smo za Železaru Smederevo, Meteh i Bio Fil.",
+      "Sanacija betona, bazena i industrijskih podova u pogonima koji ne smeju dugo da stoje. Radili smo za Železaru Smederevo i Meteh.",
     keywords: ["sanacija betona", "sanacija industrijskih objekata", "sanacija bazena", "industrijski podovi", "Železara Smederevo"],
     lead:
       "Saniramo betonske konstrukcije, bazene i podove u pogonima koji ne smeju dugo da stoje, uz plan radova usklađen sa proizvodnjom.",

@@ -7,10 +7,11 @@ import Navbar from "@/components/Navbar";
 import Photo, { zoom } from "@/components/Photo";
 import { siteUrl } from "@/constants";
 import { serviceHref, services } from "@/constants/services";
+import { RevealText } from "@/components/Reveal";
 
 const title = "Usluge: restauracija, teraco i epoxy podovi | Bajica";
 const description =
-  "Restauracija fasada i spomenika kulture, teraco i mermerni podovi, epoxy podovi i sanacija industrijskih objekata. Porodična firma iz Smedereva, radimo širom Srbije.";
+  "Restauracija fasada i spomenika kulture, teraco, mermerni i epoxy podovi, sanacija industrijskih objekata. Smederevo i cela Srbija.";
 
 export const metadata: Metadata = {
   title: { absolute: title },
@@ -35,7 +36,7 @@ const Usluge = () => (
         <div className="wrap">
           <div className="section-head">
             <p className="label">Usluge</p>
-            <h1 id="usluge-h" className="text-h2 lg:text-[clamp(48px,3.5vw+10px,64px)]">Šta radimo</h1>
+            <h1 id="usluge-h" className="text-h2 lg:text-[clamp(48px,3.5vw+10px,64px)]"><RevealText text="Šta radimo" onLoad /></h1>
             <p>
               Porodična građevinska firma iz Smedereva sa tradicijom od tri generacije. Izaberite uslugu da vidite šta obuhvata i fotografije sa naših
               gradilišta.
@@ -43,17 +44,20 @@ const Usluge = () => (
           </div>
           <div className="grid-12 gap-y-12">
             {services.map((s) => (
-              <a
+              <article
                 key={s.slug}
-                className="group col-span-12 grid content-start gap-5 transition-transform ease-out hover:-translate-y-0.5 sm:col-span-6"
-                href={serviceHref(s)}
+                className="group relative col-span-12 grid content-start gap-5 transition-transform ease-out hover:-translate-y-0.5 sm:col-span-6"
               >
                 <div className="relative aspect-[3/2] overflow-hidden bg-stone-100">
                   <Photo photo={s.hero} sizes="(max-width: 639px) 100vw, 640px" quality={85} className={zoom} />
                 </div>
                 <div className="flex items-start justify-between gap-6">
                   <div className="grid gap-2">
-                    <h2 className="text-h3">{s.title}</h2>
+                    <h2 className="text-h3">
+                      <a className="card-link" href={serviceHref(s)}>
+                        {s.name}
+                      </a>
+                    </h2>
                     <p className="max-w-[52ch] text-charcoal-600">{s.lead}</p>
                     <ul className="mt-2 flex flex-wrap gap-2">
                       {s.scope.slice(0, 3).map((item) => (
@@ -67,7 +71,7 @@ const Usluge = () => (
                     <ArrowUpRight size={22} className="transition-transform ease-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden="true" />
                   </span>
                 </div>
-              </a>
+              </article>
             ))}
           </div>
         </div>

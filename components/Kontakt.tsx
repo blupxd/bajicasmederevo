@@ -1,5 +1,6 @@
 import { ArrowUpRight, EnvelopeSimple, Phone } from "@phosphor-icons/react/dist/ssr";
 import { contact, phones } from "@/constants";
+import { RevealText } from "@/components/Reveal";
 
 const lines = [
   ...phones.map((p) => ({ label: "Telefon", value: p.label, href: p.href, Icon: Phone, nums: true })),
@@ -12,7 +13,7 @@ const Kontakt = ({ title = "Zatražite ponudu za vaš objekat" }: { title?: stri
     <div className="wrap grid-12">
       <div className="col-span-12 lg:col-span-5">
         <div className="section-head">
-          <h2 id="upit-h">{title}</h2>
+          <h2 id="upit-h"><RevealText text={title} /></h2>
           <p>Pozovite nas ili pošaljite e-poštu sa opisom objekta i radova. Dogovaramo obilazak i šaljemo pisanu ponudu.</p>
         </div>
         <dl className="grid grid-cols-2 gap-gutter text-small">

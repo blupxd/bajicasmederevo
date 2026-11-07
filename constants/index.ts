@@ -19,6 +19,8 @@ export const contact = {
   town: "Smederevo",
 };
 
+export const social = [{ label: "Instagram", href: "https://www.instagram.com/bajicasmederevo/" }];
+
 export const mainAction = { label: "Zatražite ponudu", href: "#upit" };
 
 export type Photo = { src: string; alt: string; pos?: string };
@@ -27,8 +29,9 @@ export const hero = {
   // the client's own line and slogan; the eyebrow names the firm and the trade for search engines
   eyebrow: "Bajica Smederevo · građevinska firma",
   title: "Oživljavamo istoriju, gradimo budućnost",
-  lead:
-    "Porodična građevinska firma sa tradicijom od tri generacije. Od sanacija i podova do fasada i restauracije objekata: kvalitet, tradicija i pažnja prema detaljima su naš prioritet.",
+  // the first sentence alone on a phone, both from 640 up
+  lead: "Porodična građevinska firma sa tradicijom od tri generacije.",
+  leadMore: "Od sanacija i podova do fasada i restauracije objekata: kvalitet, tradicija i pažnja prema detaljima su naš prioritet.",
   facts: [
     { label: "Osnovani", value: "1980-ih" },
     { label: "Završeni projekti", value: "100+" },
@@ -192,7 +195,7 @@ export const about = {
   id: "o-nama",
   title: "Porodična firma iz Smedereva",
   lead:
-    "Posao je u porodici od 1980-ih i danas ga vodi treća generacija. Radimo i na zaštićenim spomenicima kulture i na savremenim poslovnim prostorima, sa istom pažnjom prema detaljima.",
+    "Posao je u porodici od 1980-ih i danas ga vodi treća generacija. Oživljavamo istoriju na zaštićenim spomenicima kulture i gradimo budućnost na savremenim poslovnim prostorima, sa istom pažnjom prema detaljima.",
   clientsLabel: "Radili smo za",
   clients: [
     "Železara Smederevo",

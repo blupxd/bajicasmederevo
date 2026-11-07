@@ -1,6 +1,9 @@
-import { contact, mainAction, phones } from "@/constants";
+import { InstagramLogo } from "@phosphor-icons/react/dist/ssr";
+import { contact, mainAction, phones, social } from "@/constants";
 import { serviceHref, services } from "@/constants/services";
 import Arrow from "./Arrow";
+import Share from "./Share";
+import { RevealText } from "@/components/Reveal";
 
 const columns = (base: string): { title: string; links: { label: string; href?: string }[] }[] => [
   {
@@ -33,7 +36,7 @@ const Footer = ({ base = "", close = true }: { base?: "" | "/"; close?: boolean 
       {close && (
         <div className="mb-16 grid justify-items-start gap-head lg:mb-24">
           <div className="section-head mb-0">
-            <h2 id="close-h">Pošaljite nam upit za vaš objekat</h2>
+            <h2 id="close-h"><RevealText text="Pošaljite nam upit za vaš objekat" /></h2>
             <p>
               Ili nas pozovite na{" "}
               <a className="link tabular-nums" href={phones[0].href}>{phones[0].label}</a> ili{" "}
@@ -85,7 +88,26 @@ const Footer = ({ base = "", close = true }: { base?: "" | "/"; close?: boolean 
             </div>
           ))}
         </div>
-        <p className="mt-12 text-small text-stone-300">&copy; {new Date().getFullYear()} Bajica Smederevo. Sva prava zadržana.</p>
+        {/* the last row: share this page, then Bajica's own Instagram */}
+        <div className="mt-12 flex flex-wrap items-center justify-between gap-6 border-t border-stone-50/15 pt-8">
+          <Share />
+          <ul className="flex items-center gap-4">
+            {social.map((s) => (
+              <li key={s.href}>
+                <a
+                  className="group flex items-center gap-2 font-medium transition-colors hover:text-green-300"
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <InstagramLogo size={24} className="transition-transform group-hover:-rotate-6" aria-hidden="true" />
+                  Pratite nas na Instagramu
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <p className="mt-8 text-small text-stone-300">&copy; {new Date().getFullYear()} Bajica Smederevo. Sva prava zadržana.</p>
       </div>
     </div>
   </footer>

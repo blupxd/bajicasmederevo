@@ -1,6 +1,7 @@
 import { floors, heritage, industry } from "@/constants";
 import Arrow from "./Arrow";
 import Photo, { zoom } from "./Photo";
+import { RevealText } from "@/components/Reveal";
 
 // The service pages the home sections lead to
 const HERITAGE = "/usluge/restauracija-fasada-i-kulturnog-nasledja";
@@ -23,7 +24,7 @@ export const Heritage = () => (
       <div className="col-span-12 lg:col-span-5">
         <div className="section-head">
           <p className="label">{heritage.label}</p>
-          <h2 id="nasledje-h">{heritage.title}</h2>
+          <h2 id="nasledje-h"><RevealText text={heritage.title} /></h2>
           <p>{heritage.lead}</p>
         </div>
         <ul>
@@ -35,16 +36,12 @@ export const Heritage = () => (
           ))}
         </ul>
         <div className="mt-8">
-          <More href={HERITAGE}>Više o restauraciji nasleđa</More>
+          <More href={HERITAGE}>Više o restauraciji</More>
         </div>
       </div>
-      <a
-        className="group relative col-span-12 mt-4 aspect-[4/3] overflow-hidden bg-stone-100 lg:col-span-6 lg:col-start-7 lg:mt-0 lg:aspect-auto lg:min-h-[560px]"
-        href={HERITAGE}
-        aria-label="Restauracija fasada i kulturnog nasleđa"
-      >
-        <Photo photo={heritage.photo} sizes="(max-width: 1023px) 100vw, 50vw" quality={85} className={zoom} />
-      </a>
+      <div className="relative col-span-12 mt-4 aspect-[4/3] overflow-hidden bg-stone-100 lg:col-span-6 lg:col-start-7 lg:mt-0 lg:aspect-auto lg:min-h-[560px]">
+        <Photo photo={heritage.photo} sizes="(max-width: 1023px) 100vw, 50vw" quality={85} />
+      </div>
     </div>
   </section>
 );
@@ -56,26 +53,27 @@ export const Floors = () => (
       <div className="mb-head flex flex-wrap items-end justify-between gap-6">
         <div className="grid max-w-head gap-4">
           <p className="label">{floors.label}</p>
-          <h2 id="podovi-h">{floors.title}</h2>
+          <h2 id="podovi-h"><RevealText text={floors.title} /></h2>
           <p className="max-w-[60ch] text-lead">{floors.lead}</p>
         </div>
       </div>
       <div className="grid-12">
         {floors.tiles.map((t, i) => (
-          <a
+          <article
             key={t.title}
-            className="group col-span-12 grid content-start gap-4 transition-transform ease-out hover:-translate-y-0.5 sm:col-span-6 sm:last:odd:col-span-12 lg:col-span-4 lg:last:odd:col-span-4"
-            href={floorPages[i]}
+            className="group relative col-span-12 grid content-start gap-4 transition-transform ease-out hover:-translate-y-0.5 sm:col-span-6 sm:last:odd:col-span-12 lg:col-span-4 lg:last:odd:col-span-4"
           >
             <div className="relative aspect-[4/3] overflow-hidden bg-stone-100">
               <Photo photo={t.photo} sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 420px" className={zoom} />
             </div>
-            <h3 className="flex items-center gap-2 text-card font-medium">
-              {t.title}
-              <Arrow />
+            <h3 className="text-card font-medium">
+              <a className="card-link flex items-center gap-2" href={floorPages[i]}>
+                {t.title}
+                <Arrow />
+              </a>
             </h3>
             <p className="max-w-[52ch]">{t.text}</p>
-          </a>
+          </article>
         ))}
       </div>
     </div>
@@ -89,21 +87,16 @@ export const Industry = () => (
       <div className="mb-head flex flex-wrap items-end justify-between gap-6">
         <div className="grid max-w-head gap-4">
           <p className="label">{industry.label}</p>
-          <h2 id="industrija-h">{industry.title}</h2>
+          <h2 id="industrija-h"><RevealText text={industry.title} /></h2>
           <p className="max-w-[60ch] text-lead">{industry.lead}</p>
         </div>
-        <More href={INDUSTRY}>Više o sanaciji industrijskih objekata</More>
+        <More href={INDUSTRY}>Više o sanaciji</More>
       </div>
       <div className="grid-12">
         {industry.photos.map((p) => (
-          <a
-            key={p.src}
-            className="group relative col-span-12 aspect-[4/3] overflow-hidden bg-stone-100 sm:col-span-6 lg:aspect-[3/2]"
-            href={INDUSTRY}
-            aria-label={p.alt}
-          >
-            <Photo photo={p} sizes="(max-width: 639px) 100vw, 50vw" quality={85} className={zoom} />
-          </a>
+          <div key={p.src} className="relative col-span-12 aspect-[4/3] overflow-hidden bg-stone-100 sm:col-span-6 lg:aspect-[3/2]">
+            <Photo photo={p} sizes="(max-width: 639px) 100vw, 50vw" quality={85} />
+          </div>
         ))}
       </div>
     </div>

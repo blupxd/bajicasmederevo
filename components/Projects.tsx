@@ -1,6 +1,7 @@
 import { about, projects, steps } from "@/constants";
 import Arrow from "./Arrow";
 import Photo, { zoom } from "./Photo";
+import { RevealText } from "@/components/Reveal";
 
 // Four linked portrait tiles, each opening its project in the gallery
 export const Projects = () => (
@@ -8,7 +9,7 @@ export const Projects = () => (
     <div className="wrap">
       <div className="mb-head flex flex-wrap items-end justify-between gap-6">
         <div className="grid max-w-head gap-4">
-          <h2 id="projekti-h">{projects.title}</h2>
+          <h2 id="projekti-h"><RevealText text={projects.title} /></h2>
           <p className="max-w-[60ch] text-lead">{projects.lead}</p>
         </div>
         <a className="link group" href="/galerija">
@@ -18,19 +19,22 @@ export const Projects = () => (
       </div>
       <div className="grid-12">
         {projects.items.map((p) => (
-          <a
+          <article
             key={p.name}
-            className="group col-span-6 grid content-start gap-4 transition-transform ease-out hover:-translate-y-0.5 motion-reduce:transition-none lg:col-span-3"
-            href={`/galerija#${encodeURIComponent(p.anchor)}`}
+            className="group relative col-span-6 grid content-start gap-4 transition-transform ease-out hover:-translate-y-0.5 motion-reduce:transition-none lg:col-span-3"
           >
             <div className="relative aspect-[4/3] overflow-hidden bg-stone-100 sm:aspect-[4/5]">
               <Photo photo={p.photo} sizes="(max-width: 1023px) 50vw, 320px" className={zoom} />
             </div>
             <div>
-              <h3 className="text-card font-medium">{p.name}</h3>
+              <h3 className="text-card font-medium">
+                <a className="card-link" href={`/galerija#${encodeURIComponent(p.anchor)}`}>
+                  {p.name}
+                </a>
+              </h3>
               <p className="text-small text-stone-500">{p.work}</p>
             </div>
-          </a>
+          </article>
         ))}
       </div>
     </div>
@@ -42,7 +46,7 @@ export const Steps = () => (
   <section className="section" id={steps.id} aria-labelledby="postupak-h">
     <div className="wrap">
       <div className="section-head">
-        <h2 id="postupak-h">{steps.title}</h2>
+        <h2 id="postupak-h"><RevealText text={steps.title} /></h2>
       </div>
       <div className="grid-12">
         {steps.items.map((s, i) => (
@@ -71,7 +75,7 @@ export const About = () => (
     <div className="wrap grid-12">
       <div className="col-span-12 lg:col-span-5">
         <div className="section-head">
-          <h2 id="o-nama-h">{about.title}</h2>
+          <h2 id="o-nama-h"><RevealText text={about.title} /></h2>
           <p>{about.lead}</p>
         </div>
         <p className="text-label font-medium text-green-200">{about.clientsLabel}</p>

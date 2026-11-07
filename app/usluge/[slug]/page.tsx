@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
+import { ArrowUpRight, Phone } from "@phosphor-icons/react/dist/ssr";
 import Arrow from "@/components/Arrow";
 import CtaBand from "@/components/CtaBand";
 import Faq from "@/components/Faq";
@@ -13,6 +13,7 @@ import WorkGallery from "@/components/WorkGallery";
 import { phones, siteUrl } from "@/constants";
 import { serviceBySlug, serviceHref, services } from "@/constants/services";
 import { projectPhotos } from "@/lib/gallery";
+import { Reveal, RevealText } from "@/components/Reveal";
 
 type Params = { params: { slug: string } };
 
@@ -94,10 +95,10 @@ const ServicePage = async ({ params }: Params) => {
           aria-labelledby="usluga-h"
         >
           <Photo photo={s.hero} sizes="100vw" priority quality={85} />
-          <div className="absolute inset-0 bg-charcoal/25" aria-hidden="true" />
+          <div className="absolute inset-0 bg-charcoal/15 sm:bg-charcoal/25" aria-hidden="true" />
           <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/40 to-charcoal/0" aria-hidden="true" />
-          <div className="wrap relative pb-10 sm:pb-14">
-            <nav aria-label="Putanja" className="mb-6 text-small text-stone-50/75">
+          <div className="wrap relative pb-6 sm:pb-14">
+            <nav aria-label="Putanja" className="mb-4 text-label text-stone-50/75 sm:mb-6 sm:text-small">
               <ol className="flex flex-wrap items-center gap-2">
                 <li><a className="hover:text-stone-50 hover:underline" href="/">Početna</a></li>
                 <li aria-hidden="true">/</li>
@@ -106,19 +107,28 @@ const ServicePage = async ({ params }: Params) => {
                 <li aria-current="page" className="text-stone-50">{s.name}</li>
               </ol>
             </nav>
-            <h1 id="usluga-h" className="max-w-[18ch] text-[clamp(38px,4.2vw+14px,76px)] leading-[1.03] tracking-[-0.042em]">
-              {s.title}
+            <h1 id="usluga-h" className="max-w-[18ch] text-[clamp(32px,4.2vw+16px,76px)] leading-[1.03] tracking-[-0.042em]">
+              <RevealText text={s.title} onLoad stagger={0.06} />
             </h1>
-            <p className="mt-5 max-w-[56ch] text-lead text-stone-50/90">{s.lead}</p>
-            <div className="mt-8 flex flex-wrap items-center gap-3">
-              <a className="btn btn-primary group max-sm:w-full" href="#upit">
-                Zatražite ponudu
-                <Arrow />
-              </a>
-              <a className="btn btn-text tabular-nums decoration-stone-50/40 hover:decoration-current" href={phones[0].href}>
-                Pozovite {phones[0].label}
-              </a>
-            </div>
+            <Reveal onLoad delay={0.4}>
+              <p className="mt-4 max-w-[56ch] text-body text-stone-50/90 sm:mt-5 sm:text-lead">{s.lead}</p>
+              <div className="mt-5 flex items-center gap-3 sm:mt-8">
+                <a className="btn btn-primary group flex-1 sm:flex-none" href="#upit">
+                  Zatražite ponudu
+                  <Arrow />
+                </a>
+                <a className="btn btn-text tabular-nums decoration-stone-50/40 hover:decoration-current max-sm:hidden" href={phones[0].href}>
+                  Pozovite {phones[0].label}
+                </a>
+                <a
+                  className="grid size-12 flex-none place-items-center border border-stone-50/40 transition-colors hover:border-stone-50 active:scale-95 sm:hidden"
+                  href={phones[0].href}
+                >
+                  <Phone size={22} aria-hidden="true" />
+                  <span className="sr-only">Pozovite {phones[0].label}</span>
+                </a>
+              </div>
+            </Reveal>
           </div>
         </section>
 
@@ -128,7 +138,7 @@ const ServicePage = async ({ params }: Params) => {
             <div className="col-span-12 lg:col-span-5">
               <div className="section-head mb-0">
                 <p className="label">O usluzi</p>
-                <h2 id="opis-h">{s.about.title}</h2>
+                <h2 id="opis-h"><RevealText text={s.about.title} /></h2>
                 {s.about.paragraphs.map((p) => (
                   <p key={p.slice(0, 24)} className="!text-body text-charcoal-600 lg:!text-lead">{p}</p>
                 ))}
@@ -149,7 +159,7 @@ const ServicePage = async ({ params }: Params) => {
           <div className="wrap">
             <div className="section-head">
               <p className="label">Šta obuhvata</p>
-              <h2 id="obuhvata-h">Šta radimo u okviru usluge</h2>
+              <h2 id="obuhvata-h"><RevealText text="Šta radimo u okviru usluge" /></h2>
             </div>
             <ol className="grid-12 gap-y-0">
               {s.scope.map((item, i) => (
@@ -169,7 +179,7 @@ const ServicePage = async ({ params }: Params) => {
             <div className="mb-head flex flex-wrap items-end justify-between gap-6">
               <div className="grid max-w-head gap-4">
                 <p className="label">Naši radovi</p>
-                <h2 id="radovi-h">Fotografije sa naših gradilišta</h2>
+                <h2 id="radovi-h"><RevealText text="Fotografije sa naših gradilišta" /></h2>
                 <p className="max-w-[60ch] text-lead">
                   {projects.length} {projects.length < 5 ? "projekta" : "projekata"}, {photoCount} fotografija. Kliknite na fotografiju da je vidite u punoj veličini.
                 </p>
@@ -191,7 +201,7 @@ const ServicePage = async ({ params }: Params) => {
             <div className="col-span-12 lg:col-span-4">
               <div className="section-head">
                 <p className="label">Pitanja</p>
-                <h2 id="pitanja-h">Česta pitanja</h2>
+                <h2 id="pitanja-h"><RevealText text="Česta pitanja" /></h2>
               </div>
             </div>
             <div className="col-span-12 lg:col-span-7 lg:col-start-6">
@@ -204,21 +214,24 @@ const ServicePage = async ({ params }: Params) => {
         <section className="section bg-stone-100" aria-labelledby="ostale-h">
           <div className="wrap">
             <div className="section-head">
-              <h2 id="ostale-h">Ostale usluge</h2>
+              <h2 id="ostale-h"><RevealText text="Ostale usluge" /></h2>
             </div>
             <div className="grid-12">
               {others.map((o) => (
-                <a
+                <article
                   key={o.slug}
-                  className="group col-span-12 grid content-start gap-4 transition-transform ease-out hover:-translate-y-0.5 sm:col-span-4"
-                  href={serviceHref(o)}
+                  className="group relative col-span-12 grid content-start gap-4 transition-transform ease-out hover:-translate-y-0.5 sm:col-span-4"
                 >
                   <div className="relative aspect-[4/3] overflow-hidden bg-stone-50">
                     <Photo photo={o.navPhoto} sizes="(max-width: 639px) 100vw, 420px" className={zoom} />
                   </div>
                   <div className="flex items-start justify-between gap-4">
                     <div>
-                      <h3 className="text-card font-medium">{o.name}</h3>
+                      <h3 className="text-card font-medium">
+                        <a className="card-link" href={serviceHref(o)}>
+                          {o.name}
+                        </a>
+                      </h3>
                       <p className="text-small text-stone-500">{o.short}</p>
                     </div>
                     <ArrowUpRight
@@ -227,7 +240,7 @@ const ServicePage = async ({ params }: Params) => {
                       aria-hidden="true"
                     />
                   </div>
-                </a>
+                </article>
               ))}
             </div>
           </div>

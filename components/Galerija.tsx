@@ -4,6 +4,7 @@ import { useMemo } from "react";
 import Arrow from "./Arrow";
 import { encodeSrc, zoom } from "./Photo";
 import Viewer, { type Shot, useViewer } from "./Viewer";
+import { RevealText } from "@/components/Reveal";
 
 type Project = { folder: string; files: string[] };
 type Group = { folder: string; title: string; projects: Project[] };
@@ -28,7 +29,7 @@ const Galerija = ({ groups }: { groups: Group[] }) => {
     <div className="pb-32 pt-[calc(var(--nav)+96px)]">
       <div className="wrap">
         <div className="mb-16 grid max-w-head gap-4">
-          <h1>Galerija projekata</h1>
+          <h1><RevealText text="Galerija projekata" onLoad /></h1>
           <p className="text-lead">
             {shots.length} fotografija sa naših gradilišta, po vrsti radova i projektu. Kliknite na fotografiju da je vidite u punoj veličini.
           </p>
@@ -44,7 +45,7 @@ const Galerija = ({ groups }: { groups: Group[] }) => {
 
         {groups.map((g) => (
           <section key={g.folder} id={g.folder} className="scroll-mt-nav pt-24" aria-label={g.title}>
-            <h2 className="mb-12">{g.title}</h2>
+            <h2 className="mb-12"><RevealText text={g.title} /></h2>
             {g.projects.map((p) => (
               <article key={p.folder} id={p.folder} className="scroll-mt-nav border-t border-charcoal/10 py-12">
                 <h3 className="mb-6 text-card font-medium">{p.folder}</h3>

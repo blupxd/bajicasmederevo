@@ -2,7 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Schibsted_Grotesk } from "next/font/google";
 import CallButton from "@/components/CallButton";
 import JsonLd from "@/components/JsonLd";
-import { contact, phones, siteUrl } from "@/constants";
+import { MotionRoot } from "@/components/Reveal";
+import { contact, phones, siteUrl, social } from "@/constants";
 import { serviceHref, services } from "@/constants/services";
 import "./globals.css";
 
@@ -15,7 +16,7 @@ const schibsted = Schibsted_Grotesk({
 
 const title = "Bajica Smederevo | Restauracija fasada, teraco i epoxy podovi";
 const description =
-  "Porodična građevinska firma iz Smedereva sa tradicijom od tri generacije: restauracija fasada i spomenika kulture, teraco, mermerni i epoxy podovi, sanacija objekata.";
+  "Porodična građevinska firma iz Smedereva, tri generacije: restauracija fasada i spomenika kulture, teraco, mermerni i epoxy podovi.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -63,6 +64,7 @@ const business = {
   telephone: phones.map((p) => p.e164),
   address: { "@type": "PostalAddress", addressLocality: "Smederevo", addressCountry: "RS" },
   areaServed: { "@type": "Country", name: "Srbija" },
+  ...(social.length > 0 && { sameAs: social.map((s) => s.href) }),
   hasOfferCatalog: {
     "@type": "OfferCatalog",
     name: "Usluge",
@@ -75,11 +77,13 @@ const business = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="sr-Latn" className={schibsted.variable} data-type="service">
+    <html lang="sr" className={schibsted.variable} data-type="service">
       <body>
         <JsonLd data={business} />
-        {children}
-        <CallButton />
+        <MotionRoot>
+          {children}
+          <CallButton />
+        </MotionRoot>
       </body>
     </html>
   );
